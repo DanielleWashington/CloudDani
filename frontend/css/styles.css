@@ -4416,12 +4416,13 @@ input[type="button"].btn--primary:focus {
     background-position: center;
     background-size: cover;
     background-color: var(--color-gray-18);
+    padding-top: var(--vspace-5);
     padding-bottom: var(--vspace-3_5);
 }
 
 .s-contact .section-header-allcaps {
     color: #1E1E24;
-    margin-bottom: var(--vspace-2_5);
+    margin-bottom: var(--vspace-1_5);
 }
 
 .s-contact .huge-text {
@@ -4432,16 +4433,43 @@ input[type="button"].btn--primary:focus {
     line-height: 1.304;
 }
 
-.s-contact__content [class*="column"]:last-child {
+.s-contact__content {
+    width: 100%;
+}
+
+.s-contact__panel {
     color: #1E1E24;
-    margin-left: auto;
+    max-width: 72rem;
+    padding: var(--vspace-1_5) var(--vspace-1);
+    text-align: center;
+}
+
+.s-contact__panel .contact-cta {
+    margin-top: var(--vspace-1);
+    display: flex;
+    justify-content: center;
+}
+
+.s-contact__panel .mailtoui {
+    min-width: 22rem;
 }
 
 /* ------------------------------------------------------------------- 
  * ## projects section
  * ------------------------------------------------------------------- */
+#projects.s-resume {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#projects .s-resume__section {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
 #projects h2 {
-    color: white;
+    color: var(--color-text);
 }
 
 #projects .project-item,
@@ -4449,12 +4477,12 @@ input[type="button"].btn--primary:focus {
 #projects .project-item .info,
 #projects .project-item li,
 #projects .project-item a {
-    color: white;
+    color: var(--color-text);
 }
 
 #projects .project-item a:hover,
 #projects .project-item a:focus {
-    color: white;
+    color: var(--color-2);
 }
 
 #resume .work-item {
@@ -4531,8 +4559,8 @@ input[type="button"].btn--primary:focus {
     .s-contact {
         padding-top: var(--vspace-5);
     }
-    .s-contact__header {
-        text-align: center;
+    .s-contact__panel {
+        max-width: 100%;
     }
     .s-contact .huge-text {
         font-size: 4.2rem;
@@ -4543,23 +4571,11 @@ input[type="button"].btn--primary:focus {
     .s-contact .huge-text {
         font-size: 3.4rem;
     }
-    .contact-block {
-        font-size: 2.6rem;
-    }
-    .contact-block__header {
-        font-size: 1.8rem;
-    }
 }
 
 @media screen and (max-width: 400px) {
     .s-contact .huge-text {
         font-size: 3.2rem;
-    }
-    .contact-block {
-        font-size: 2.2rem;
-    }
-    .contact-block__header {
-        font-size: 1.6rem;
     }
 }
 
