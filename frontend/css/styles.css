@@ -4476,6 +4476,16 @@ input[type="button"].btn--primary:focus {
     color: var(--color-text);
 }
 
+#projects .projects-subtitle {
+    margin-top: var(--vspace-2);
+    margin-bottom: var(--vspace-0_75);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
 #projects .project-item,
 #projects .project-item h3,
 #projects .project-item .info,
@@ -4489,6 +4499,10 @@ input[type="button"].btn--primary:focus {
     color: var(--color-2);
 }
 
+#projects .project-item--speaking h3 {
+    margin-bottom: var(--vspace-0_25);
+}
+
 #resume .work-item {
     margin-bottom: var(--vspace-1_5);
 }
@@ -4499,20 +4513,6 @@ input[type="button"].btn--primary:focus {
 
 #resume .work-item h3 {
     margin-top: 0;
-}
-
-#speaking h2,
-#speaking .talk-item,
-#speaking .talk-item h3,
-#speaking .talk-item .info,
-#speaking .talk-item li,
-#speaking .talk-item a {
-    color: white;
-}
-
-#speaking .talk-item a:hover,
-#speaking .talk-item a:focus {
-    color: white;
 }
 
 /* ------------------------------------------------------------------- 
