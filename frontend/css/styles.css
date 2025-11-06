@@ -3899,12 +3899,22 @@ input[type="button"].btn--primary:focus {
     border-bottom: 1px solid var(--color-border);
     padding-bottom: var(--vspace-0_75);
     margin-bottom: var(--vspace-2_5);
+    align-items: flex-start;
 }
 
 .s-resume__section:last-child {
     border-bottom: none;
     padding-bottom: 0;
     margin-bottom: 0;
+}
+
+#resume .column.large-9 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#resume .column.large-9 .work-item:first-of-type {
+    margin-top: 0;
 }
 
 /* ------------------------------------------------------------------- 
@@ -4425,6 +4435,52 @@ input[type="button"].btn--primary:focus {
 .s-contact__content [class*="column"]:last-child {
     color: #1E1E24;
     margin-left: auto;
+}
+
+/* ------------------------------------------------------------------- 
+ * ## projects section
+ * ------------------------------------------------------------------- */
+#projects h2 {
+    color: white;
+}
+
+#projects .project-item,
+#projects .project-item h3,
+#projects .project-item .info,
+#projects .project-item li,
+#projects .project-item a {
+    color: white;
+}
+
+#projects .project-item a:hover,
+#projects .project-item a:focus {
+    color: white;
+}
+
+#resume .work-item {
+    margin-bottom: var(--vspace-1_5);
+}
+
+#resume .work-item + .work-item {
+    margin-top: var(--vspace-1_5);
+}
+
+#resume .work-item h3 {
+    margin-top: 0;
+}
+
+#speaking h2,
+#speaking .talk-item,
+#speaking .talk-item h3,
+#speaking .talk-item .info,
+#speaking .talk-item li,
+#speaking .talk-item a {
+    color: white;
+}
+
+#speaking .talk-item a:hover,
+#speaking .talk-item a:focus {
+    color: white;
 }
 
 /* ------------------------------------------------------------------- 
