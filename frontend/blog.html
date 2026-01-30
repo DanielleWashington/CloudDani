@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Cloud Dani - Technical Storytelling</title>
+    <meta name="description" content="Insights on documentation strategy, developer experience, and cloud engineering">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/netflix-styles.css">
+    <link rel="stylesheet" href="css/blog-styles.css">
+    <link rel="stylesheet" href="css/chatbot-styles.css">
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <a href="netflix-index.html" class="logo">CLOUD<span>DANI</span></a>
+                <ul class="nav-menu">
+                    <li><a href="netflix-index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="netflix-index.html#about" class="nav-link">About</a></li>
+                    <li><a href="netflix-index.html#experience" class="nav-link">Experience</a></li>
+                    <li><a href="netflix-index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="netflix-index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-right">
+                <a href="https://www.linkedin.com/in/danielle-washington-8b4644206" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/DanielleWashington/cloudresumechallenge" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://blog.clouddani.com" target="_blank" class="social-icon">
+                    <i class="fa fa-globe"></i>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="blog-hero-overlay"></div>
+        <div class="container">
+            <div class="blog-hero-content">
+                <h1 class="blog-hero-title">TECHNICAL<br>STORYTELLING</h1>
+                <p class="blog-hero-subtitle">
+                    Insights on documentation strategy, developer relations, developer experience, and AI.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="section featured-section">
+        <div class="container">
+            <h2 class="section-title">Featured Post</h2>
+            
+            <div class="featured-post">
+                <div class="featured-post-image">
+                    <div class="featured-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-newspaper fa-4x"></i>
+                    </div>
+                    <span class="featured-badge">Featured</span>
+                </div>
+                <div class="featured-post-content">
+                    <div class="post-meta">
+                        <span class="post-category">Documentation Strategy</span>
+                        <span class="post-date">December 2024</span>
+                        <span class="post-read-time"><i class="far fa-clock"></i> 8 min read</span>
+                    </div>
+                    <h3>Building Documentation That Developers Actually Use</h3>
+                    <p class="post-excerpt">
+                        Documentation isn't just about writing down what exists, it's all about understanding the developer journey, 
+                        identifying pain points, and creating content that removes friction at every step. Here's how I approach 
+                        documentation strategy for complex platforms like HPE GreenLake and Weaviate's vector database.
+                    </p>
+                    <div class="post-tags">
+                        <span class="post-tag">Developer Experience</span>
+                        <span class="post-tag">Technical Writing</span>
+                        <span class="post-tag">Best Practices</span>
+                    </div>
+                    <a href="https://blog.clouddani.com" target="_blank" class="btn btn-primary">
+                        Read Full Article <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Posts Grid -->
+    <section class="section posts-section">
+        <div class="container">
+            <h2 class="section-title">Recent Articles</h2>
+            
+            <div class="posts-grid">
+                
+                <!-- Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <i class="fas fa-rocket fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="post-category">Cloud Engineering</span>
+                            <span class="post-date">November 2024</span>
+                        </div>
+                        <h4>My Journey with the Cloud Resume Challenge</h4>
+                        <p class="post-excerpt">
+                            How I built CloudDani using AWS serverless architecture, and what I learned about 
+                            S3, CloudFront, Lambda, DynamoDB, and CI/CD along the way.
+                        </p>
+                        <div class="post-tags">
+                            <span class="post-tag">AWS</span>
+                            <span class="post-tag">Serverless</span>
+                            <span class="post-tag">Portfolio</span>
+                        </div>
+                        <a href="https://blog.clouddani.com" target="_blank" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <i class="fas fa-code fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="post-category">Developer Tools</span>
+                            <span class="post-date">October 2024</span>
+                        </div>
+                        <h4>Building the EKS Configurator for Weaviate</h4>
+                        <p class="post-excerpt">
+                            Why developer tools matter, and how we created a web-based configurator to simplify 
+                            Kubernetes deployments for our users.
+                        </p>
+                        <div class="post-tags">
+                            <span class="post-tag">Kubernetes</span>
+                            <span class="post-tag">Developer Tools</span>
+                            <span class="post-tag">UX</span>
+                        </div>
+                        <a href="https://blog.clouddani.com" target="_blank" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <i class="fas fa-book fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="post-category">Technical Writing</span>
+                            <span class="post-date">September 2024</span>
+                        </div>
+                        <h4>From Pages to Journeys: Thinking Like a Developer</h4>
+                        <p class="post-excerpt">
+                            Great documentation isn't a collection of pages—it's a journey that meets developers 
+                            where they are and guides them to success.
+                        </p>
+                        <div class="post-tags">
+                            <span class="post-tag">Documentation</span>
+                            <span class="post-tag">Developer Journey</span>
+                        </div>
+                        <a href="https://blog.clouddani.com" target="_blank" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-placeholder" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                            <i class="fas fa-chalkboard-teacher fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="post-category">Career</span>
+                            <span class="post-date">August 2024</span>
+                        </div>
+                        <h4>Growing into Senior Technical Writing Roles</h4>
+                        <p class="post-excerpt">
+                            What it takes to move from writing docs to leading documentation strategy, 
+                            mentoring writers, and driving developer experience initiatives.
+                        </p>
+                        <div class="post-tags">
+                            <span class="post-tag">Career Growth</span>
+                            <span class="post-tag">Leadership</span>
+                        </div>
+                        <a href="https://blog.clouddani.com" target="_blank" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            <i class="fas fa-database fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="post-category">AI/ML</span>
+                            <span class="post-date">July 2024</span>
+                        </div>
+                        <h4>Documenting Vector Databases: Weaviate Insights</h4>
+                        <p class="post-excerpt">
+                            Vector databases are powering the AI revolution. Here's what I learned documenting 
+                            deployment, scaling, and optimization for Weaviate.
+                        </p>
+                        <div class="post-tags">
+                            <span class="post-tag">Vector DB</span>
+                            <span class="post-tag">AI</span>
+                            <span class="post-tag">Weaviate</span>
+                        </div>
+                        <a href="https://blog.clouddani.com" target="_blank" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-placeholder" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <i class="fas fa-lightbulb fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="post-category">Insights</span>
+                            <span class="post-date">June 2024</span>
+                        </div>
+                        <h4>Documentation as Product: A Mindset Shift</h4>
+                        <p class="post-excerpt">
+                            Why treating documentation as a product—not an afterthought—transforms developer 
+                            experience and reduces support burden.
+                        </p>
+                        <div class="post-tags">
+                            <span class="post-tag">Product Thinking</span>
+                            <span class="post-tag">Strategy</span>
+                        </div>
+                        <a href="https://blog.clouddani.com" target="_blank" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter-section">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-icon">
+                    <i class="fas fa-envelope-open-text fa-3x"></i>
+                </div>
+                <h2>Stay Updated</h2>
+                <p>Get insights on documentation strategy, developer experience, and cloud engineering delivered to your inbox.</p>
+                <form class="newsletter-form" action="https://blog.clouddani.com" target="_blank">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    © 2026 Cloud Dani. Built with ☁️ on AWS.
+                </p>
+                <p class="footer-subtext">
+                    Where documentation meets storytelling, and the cloud meets creativity.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/netflix-scripts.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/devto-feed.js"></script>
+
+</body>
+</html>

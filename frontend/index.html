@@ -1,424 +1,490 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Danielle W. | Technical Storyteller | Developer Documentation</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-
-    <!-- script
-    ================================================== -->
-    <script defer src="js/vendor/fontawesome/all.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Dani | Technical Storyteller Portfolio</title>
+    <meta name="description" content="Technical Documentation Writer & Developer Experience Advocate">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/netflix-styles.css">
+    <link rel="stylesheet" href="css/intro-animation.css">
+    <link rel="stylesheet" href="css/chatbot-styles.css">
+    
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-
 </head>
-
-<body id="top" class="ss-preload">
-
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader"></div>
-    </div>
-
-
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-        <div class="row s-header__nav-wrap">
-            <nav class="s-header__nav">
-                <ul>
-                    <li class="current"><a class="smoothscroll" href="#hero">Home</a></li>
-                    <li><a class="smoothscroll" href="#about">About</a></li>
-                    <li><a class="smoothscroll" href="#resume">Resume</a></li>
-                    <li><a class="smoothscroll" href="#projects">Projects</a></li>
-                    <li><a class="smoothscroll" href="#contact">Contact me!</a></li>
-                </ul>
-            </nav>
-        </div> <!-- end row -->
-        
-        <a class="s-header__menu-toggle" href="#0" title="Menu">
-            <span class="s-header__menu-icon"></span>
-        </a>
-        
-    </header> <!-- end s-header -->
-
-
-    <!-- hero
-    ================================================== -->
-    <section id="hero" class="s-hero target-section">
-
-        <div class="s-hero__bg rellax" data-rellax-speed="-7"></div>
-
-        <div class="row s-hero__content">
-            <div class="column">
-
-                <div class="s-hero__content-about">
-                    <h1 class="responsive-headline"> Hi, I'm Danielle!</h1>
-                    <div class="counter-number"></div>
-                    <h3>
-                    I empower developers to ship faster and feel more confident with complex platforms. My work lives where documentation, developer
-                    experience, and product education converge. I am focused on <b>senior and staff level technical writing roles </b> where I can lead documentation strategy and developer
-                    education initiatives. <br> <br>
-                    Feel free to <a class="smoothscroll" href="#about"> scroll</a>
-                    and learn more <a class="smoothscroll" href="#about">about me</a>!
-                    </h3>
-
-                    <div class="s-hero__content-social">
-                        <a href="https://www.linkedin.com/in/danielle-washington-8b4644206"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                    </div>
-
-                </div> <!-- end s-hero__content-about -->
-
-            </div>
-        </div> <!-- s-hero__content -->
-
-        <div class="s-hero__scroll">
-            <a href="#about" class="s-hero__scroll-link smoothscroll">
-                <span class="scroll-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M18.707 12.707L17.293 11.293 13 15.586 13 6 11 6 11 15.586 6.707 11.293 5.293 12.707 12 19.414z"></path></svg>
-                </span>
-                <span class="scroll-text">Scroll Down</span>
-            </a>
-        </div> <!-- s-hero__scroll -->
-
-    </section> <!-- end s-hero -->
-
-
-    <!-- about
-    ================================================== -->
-    <section id="about" class="s-about target-section">
-
-        <div class="row">
-            <div class="column large-3 tab-12">
-                <!--<img class="s-about__pic" src="images/avatars/user-06.jpg" alt="">
-                    Placeholder Photo Here
-                -->
-            </div>
-            <div class="column large-9 tab-12 s-about__content">
-                <h3>About Me</h3>
-                <p>
-                I think in terms of developer journeys, not just individual pages.
-                I care about what developers are trying to do, where they get <i>stuck</i>, and how documentation,
-                examples, and tutorials can remove friction at every step.
-                </p>
-
-                <hr>
-
-                <div class="row s-about__content-bottom">
-                    <div class="column w-1000-stack">
-                        <h3>Contact Details</h3>
+<body>
     
-                        <p>
-                        Danielle Washington <br>
-                        Philadelphia Metro Area<br>
-                        <i>Open to relocation </i> <br>
-                        <a href="mailto:shakara.washington02@gmail.com">Connect with me!</a>
-                        </p>
-                        
-                    </div>
-                </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <a href="#home" class="logo">CLOUD<span>DANI</span></a>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
             </div>
-        </div> <!-- end row -->
-
-    </section> <!-- end s-about -->
-
-
-    <!-- resume
-    ================================================== -->
-    <section id="resume" class="s-resume target-section">
-        <div class="row s-resume__section">
-            <div class="column large-3 tab-12">
-                <h3 class="section-header-allcaps">Career</h3>
+            <div class="navbar-right">
+                <a href="https://www.linkedin.com/in/danielle-washington-8b4644206" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/DanielleWashington/cloudresumechallenge" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://blog.clouddani.com" target="_blank" class="social-icon">
+                    <i class="fa fa-globe"></i>
+                </a>
             </div>
-            <div class="column large-9 tab-12">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-                <div class="work-item">
-                    <h3>Weaviate</h3>
-                    <p class="info">
-                        Technical Documentation Writer <span>&bull;</span> Remote <span>&bull;</span>
-                        January 2025 – October 2025
-                    </p>
-                    <ul>
-                        <li>
-                            Drove documentation strategy and developer experience for Weaviate's open source vector database,
-                            supporting AI native developers and enterprise customers across deployment, operations, and
-                            optimization workflows.
-                        </li>
-                        <li>
-                            Owned end to end deployment documentation strategy, improving time to first deployment and
-                            onboarding for Kubernetes, Helm, and EKS based installations.
-                        </li>
-                        <li>
-                            Authored high impact content on Day 0 to Day 2 operations, horizontal scaling, and latency
-                            optimization, positioning documentation as a differentiator for production readiness.
-                        </li>
-                        <li>
-                            Reduced deployment friction for EKS users by collaborating on tools such as the EKS Configurator,
-                            which generates validated YAML from an intuitive interface and bridges the gap between docs
-                            and implementation.
-                        </li>
-                        <li>
-                            Established documentation driven feedback loops with engineering and support, using user
-                            pain points and tickets to influence feature improvements and documentation priorities.
-                        </li>
-                    </ul>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-info">
+                <h1 class="hero-title">DANIELLE WASHINGTON</h1>
+                <div class="hero-badges">
+                    <span class="badge">Technical Storyteller</span>
+                    <span class="badge">Developer Experience</span>
+                    <span class="badge">Documentation Strategy</span>
                 </div>
-
-                <div class="work-item">
-                    <h3>Hewlett Packard Enterprise (HPE)</h3>
-                    <p class="info">
-                        Cloud Platform Information Developer, Documentation Tech Lead <span>&bull;</span> Remote
-                        <span>&bull;</span> March 2022 – January 2025
-                    </p>
-                    <ul>
-                        <li>
-                            Led documentation strategy for HPE GreenLake Cloud Platform, supporting multiple business units
-                            while scaling documentation operations and mentoring technical writing talent.
-                        </li>
-                        <li>
-                            Architected and implemented developer portals using tools like Redocly, Backstage, and
-                            Just the Docs, establishing documentation infrastructure for several product lines and
-                            developer workflows.
-                        </li>
-                        <li>
-                            Eliminated documentation technical debt in key areas by championing quality initiatives such as
-                            automated link checking in GitHub Actions, reducing broken links and improving reliability for
-                            internal and external users.
-                        </li>
-                        <li>
-                            Improved user experience and reduced support ticket volume through proactive content gap
-                            analysis, redirects, and troubleshooting content that met developers where they were.
-                        </li>
-                        <li>
-                            Led cross functional alignment sessions with platform developers and GitOps teams to ensure
-                            complex hybrid cloud import processes were accurately documented and discoverable.
-                        </li>
-                    </ul>
+                <p class="hero-description">
+                    I empower developers to ship faster and feel more confident with complex platforms. 
+                    My work lives where documentation, developer experience, and product education converge.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Learn More
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i> Get In Touch
+                    </a>
                 </div>
-
-                <div class="work-item">
-                    <h3>Gaia (formerly GaiaNet)</h3>
-                    <p class="info">
-                        Web3 Information Developer <span>&bull;</span> Remote, Contract
-                    </p>
-                    <ul>
-                        <li>
-                            Delivered comprehensive technical documentation for an emerging Web3 and AI development platform,
-                            helping drive user adoption and reduce onboarding friction for developer audiences.
-                        </li>
-                        <li>
-                            Produced API documentation, integration guides, and tutorials that supported retention and
-                            conversion by making complex concepts more approachable.
-                        </li>
-                        <li>
-                            Maintained consistency across concurrent projects through style guides, templates, and review
-                            processes that kept content aligned with evolving platform capabilities.
-                        </li>
-                    </ul>
+                <div class="visitor-counter">
+                    <i class="fas fa-users"></i>
+                    <span id="visitorCount">Loading...</span>
+                    <span>visitors</span>
                 </div>
-
-                <div class="work-item">
-                    <h3>Sarithm Inc. (HPE Contract)</h3>
-                    <p class="info">
-                        API Technical Writer <span>&bull;</span> Remote <span>&bull;</span> August 2021 – February 2022
-                    </p>
-                    <ul>
-                        <li>
-                            Partnered with Scrum teams to document GreenLake Cloud Platform features, procedures, and API
-                            functionality for internal and external developers.
-                        </li>
-                        <li>
-                            Created and maintained API reference content, user guides, and release notes that aligned with
-                            platform evolution and feature delivery.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="work-item">
-                    <h3>Earlier Experience</h3>
-                    <p class="info">
-                        Technical Report Writer, Southern New England Electrical Testing <span>&bull;</span>
-                        Content Writer, The Black Rebecca
-                    </p>
-                    <ul>
-                        <li>
-                            Developed and edited technical reports, presentations, and client facing content, building a
-                            foundation in structured communication and quality review.
-                        </li>
-                        <li>
-                            Managed content operations, newsletters, and project workflows for design and residential
-                            clients, honing editorial and stakeholder management skills.
-                        </li>
-                    </ul>
-                </div>
-
             </div>
         </div>
-    </section> <!-- end s-resume -->
+        <div class="hero-fade"></div>
+    </section>
 
-    <!-- Projects / Technical Work -->
-    <section id="projects" class="s-resume target-section">
-        <div class="row s-resume__section">
-            <div class="column large-3 tab-12">
-                <h3 class="section-header-allcaps">Projects</h3>
-            </div>
-            <div class="column large-9 tab-12">
-                <h2>Technical Projects and Developer Experience Work</h2>
-
-                <div class="project-item">
-                    <h3>CloudDani Concierge (in progress)</h3>
-                    <p class="info">
-                        AI powered interactive portfolio experience
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">
+                        I built a career across technology, education, entrepreneurship, and luxury retail centered on <em>translation</em>: 
+                        turning complex systems, products, and ideas into experiences people can understand and trust.
                     </p>
-                    <ul>
-                        <li>
-                            Designing an AI powered interactive résumé using a retrieval augmented generation architecture
-                            with OpenAI GPT 4o and a vector database to showcase modern documentation and knowledge
-                            workflows.
-                        </li>
-                        <li>
-                            Training a custom agent on my documentation samples, portfolio projects, and talks so visitors
-                            can explore my work and approach to developer experience through natural language.
-                        </li>
-                        <li>
-                            Positions documentation as an intelligent, conversational layer instead of static text alone,
-                            highlighting how AI can support developer education and discovery.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="project-item">
-                    <h3>EKS Configurator</h3>
-                    <p class="info">
-                        Developer tool to support Weaviate on EKS | <a href="https://k8s-config-nzfndvmnwxppa6zegwocxm.streamlit.app/" target="_blank">
-      View Demo
+                    <p>
+                        I specialize in <strong>narrative-driven systems design</strong> — from developer platforms to consumer brands — 
+                        where storytelling is used to drive adoption, learning, and decision-making. I care about what developers 
+                        are trying to do, where they get <em>stuck</em>, and how documentation can remove friction at every step.
                     </p>
-                    <ul>
-                        <li>
-                            Built a web based configurator that automates EKS cluster configuration for Weaviate deployments,
-                            helping users generate validated YAML through a guided UI.
-                        </li>
-                        <li>
-                            Bridges documentation and implementation by encoding best practices directly into the tool,
-                            reducing deployment time and making the path from "how to" guide to working cluster much shorter.
-                        </li>
-                        <li>
-                            Demonstrates how developer tools, examples, and docs can work together to improve developer
-                            experience for production workloads.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="project-item">
-                    <h3>CloudDani</h3>
-                    <p class="info">
-                        Documentation focused portfolio built on AWS
+                    <p>
+                        I've repeatedly operated at the boundary between technical depth and human experience: teaching, documenting, 
+                        selling, founding, and partnering. I bring <strong>founder-level ownership</strong>, product thinking, and 
+                        narrative strategy into technical documentation and developer education.
                     </p>
-                    <ul>
-                        <li>
-                            Built a full stack cloud resume style site using HTML, CSS, JavaScript, Python, AWS S3,
-                            CloudFront, Lambda, API Gateway, Route 53, DynamoDB, and GitHub Actions for CI/CD.
-                        </li>
-                        <li>
-                            Uses a serverless architecture similar to the platforms I document, while treating the site
-                            itself as a documentation experience with clear navigation, case study style project write ups,
-                            and content tailored to developer experience and documentation leadership roles.
-                        </li>
-                    </ul>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">11+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Documentation Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Major Platforms</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-details">
+                        <h3>Contact Details</h3>
+                        <p>
+                            <i class="fas fa-user"></i> Danielle Washington<br>
+                            <i class="fas fa-map-marker-alt"></i> Philadelphia Metro Area<br>
+                            <i class="fas fa-plane"></i> <em>Open to relocation</em><br>
+                            <i class="fas fa-envelope"></i> <a href="mailto:shakara.washington02@gmail.com">shakara.washington02@gmail.com</a>
+                        </p>
+                    </div>
                 </div>
-
-                <h2 class="projects-subtitle">Speaking &amp; Community</h2>
-
-                <div class="project-item project-item--speaking">
-                    <h3>Technical Storytelling Webinar, 3percentclub</h3>
-                    <p class="info">
-                        Guest speaker
-                    </p>
-                    <ul>
-                        <li>
-                            Delivered a webinar on my path as a technical writer and shared a framework for creating
-                            compelling narratives around technical products and platforms.
-                        </li>
-                        <li>
-                            Provided guidance on what it takes to grow into senior and staff level technical writing roles,
-                            with a focus on communicating complex technical concepts to diverse audiences.
-                        </li>
-                    </ul>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- contact
-    ================================================== -->
-    <section id="contact" class="s-contact target-section">
-        <div class="row s-contact__content row-x-center row-y-center">
-            <div class="column large-8 medium-10 tab-12 align-center s-contact__panel">
-                <h3 class="section-header-allcaps h-text-center">Let's Collaborate!</h3>
-                <h4 class="huge-text h-text-center">
-                    <i>If you believe that documentation should be treated as a core
-                    part of the developer experience, I would love to talk about how I can help. </i>
-                </h4>
-                <div class="contact-cta">
-                    <a href="mailto:shakara.washington02@gmail.com" class="mailtoui btn btn--primary">Let's Talk!</a>
+    <!-- Experience Section -->
+    <section class="section experience-section" id="experience">
+        <div class="container">
+            <h2 class="section-title">Career Journey</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-content">
+                        <h3>Technical Documentation Writer</h3>
+                        <h4>Weaviate</h4>
+                        <p class="period">January 2025 – October 2025 | Remote</p>
+                        <ul class="highlights">
+                            <li>Drove documentation strategy and developer experience for Weaviate's open-source vector database</li>
+                            <li>Owned end-to-end deployment documentation strategy, improving time-to-first-deployment</li>
+                            <li>Authored high-impact content on Day 0 to Day 2 operations, horizontal scaling, and latency optimization</li>
+                            <li>Reduced deployment friction for EKS users by collaborating on the EKS Configurator tool</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">EKS</span>
+                            <span class="tech-tag">Vector DB</span>
+                            <span class="tech-tag">Developer Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-content">
+                        <h3>Web3 Information Developer</h3>
+                        <h4>Gaia (formerly GaiaNet)</h4>
+                        <p class="period">Remote, Contract</p>
+                        <ul class="highlights">
+                            <li>Delivered comprehensive technical documentation for Web3 and AI development platform</li>
+                            <li>Produced API documentation, integration guides, and tutorials supporting user adoption</li>
+                            <li>Maintained consistency through style guides, templates, and review processes</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Web3</span>
+                            <span class="tech-tag">API Docs</span>
+                            <span class="tech-tag">Developer Onboarding</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2022">
+                    <div class="timeline-content">
+                        <h3>Cloud Platform Information Developer, Documentation Tech Lead</h3>
+                        <h4>Hewlett Packard Enterprise (HPE)</h4>
+                        <p class="period">March 2022 – January 2025 | Remote</p>
+                        <ul class="highlights">
+                            <li>Led documentation strategy for HPE GreenLake Cloud Platform, supporting multiple business units</li>
+                            <li>Architected and implemented developer portals using Redocly, Backstage, and Just the Docs</li>
+                            <li>Eliminated documentation technical debt through automated link checking in GitHub Actions</li>
+                            <li>Led cross-functional alignment sessions with platform developers and GitOps teams</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Redocly</span>
+                            <span class="tech-tag">Backstage</span>
+                            <span class="tech-tag">GitHub Actions</span>
+                            <span class="tech-tag">Hybrid Cloud</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2021">
+                    <div class="timeline-content">
+                        <h3>API Technical Writer</h3>
+                        <h4>Sarithm Inc. (HPE Contract)</h4>
+                        <p class="period">August 2021 – February 2022 | Remote</p>
+                        <ul class="highlights">
+                            <li>Partnered with Scrum teams to document GreenLake Cloud Platform features and API functionality</li>
+                            <li>Created and maintained API reference content, user guides, and release notes</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">API Documentation</span>
+                            <span class="tech-tag">Agile</span>
+                            <span class="tech-tag">Cloud Platform</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> <!-- s-contact__content -->
-    </section> <!-- end s-contact -->
-    
 
-    <!-- footer
-    ================================================== -->
-    <footer class="s-footer">
-        <div class="row">
-            <div class="column large-4 medium-6 w-1000-stack s-footer__social-block">
-                <ul class="s-footer__social">
-                    <li><a href="https://github.com/DanielleWashington/cloudresumechallenge"><i class="fab fa-github" aria-hidden="true"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/danielle-washington-8b4644206"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
-                    <li><a href="https://blog.clouddani.com"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
-                </ul>
+            <!-- Earlier Experience Separator -->
+            <div class="timeline-separator">
+                <h3 class="separator-title">Earlier Experience</h3>
+                <p class="separator-subtitle">Founding, Partnerships, and Education</p>
             </div>
 
-            <div class="column large-7 medium-6 w-1000-stack ss-copyright">
-                <span>© Copyright Ceevee 2024</span> 
-                <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+            <div class="timeline">
+                <div class="timeline-item" data-year="2017">
+                    <div class="timeline-content">
+                        <h3>Founder & Operator</h3>
+                        <h4>Amor Mas</h4>
+                        <p class="period">2017 – 2021</p>
+                        <ul class="highlights">
+                            <li>Founded and operated a DTC brand built around narrative design, where each product line was anchored to destination-based stories and long-form content</li>
+                            <li>Designed and executed full brand strategy: product concept, narrative architecture, packaging voice, blog editorial calendar, and customer experience</li>
+                            <li>Wrote and published destination essays connecting sensory design to cultural and emotional storytelling, strengthening brand differentiation and customer loyalty</li>
+                            <li>Managed end-to-end operations: sourcing, manufacturing coordination, pricing, marketing, fulfillment, and customer communication</li>
+                            <li>Developed early product-market fit through narrative-driven branding rather than paid acquisition</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Founder Mindset</span>
+                            <span class="tech-tag">Product Storytelling</span>
+                            <span class="tech-tag">Brand Systems</span>
+                            <span class="tech-tag">Narrative Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2016">
+                    <div class="timeline-content">
+                        <h3>Auxiliar de Conversaccion/English Language Teacher</h3>
+                        <h4>Ministry of Education, Spain</h4>
+                        <p class="period">2016 – 2017</p>
+                        <ul class="highlights">
+                            <li>Designed and delivered structured lesson plans and learning activities for children across multiple age groups in a multilingual environment</li>
+                            <li>Adapted curriculum to diverse learning styles, cultural contexts, and developmental stages</li>
+                            <li>Built foundational skills in pedagogy, instructional design, and learner-centric communication</li>
+                            <li>Developed early expertise in explaining complex concepts simply and sequencing knowledge for retention</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Pedagogy</span>
+                            <span class="tech-tag">Instructional Design</span>
+                            <span class="tech-tag">Learner Empathy</span>
+                            <span class="tech-tag">Communication Architecture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2014">
+                    <div class="timeline-content">
+                        <h3>Sales & Marketing</h3>
+                        <h4>Links of London</h4>
+                        <p class="period">2014 – 2016</p>
+                        <ul class="highlights">
+                            <li>Led brand partnerships and in-store marketing strategy for an independent luxury jewelry company inside a flagship department store</li>
+                            <li>Negotiated cross-brand collaborations with global beauty and luxury brands (SpaceNK, Jo Malone) to drive co-branded awareness and foot traffic</li>
+                            <li>Worked directly with fashion stylists to place products on models for in-store events, integrating merchandising with experiential marketing</li>
+                            <li>Designed and executed partnership campaigns that blended retail, events, and visual storytelling</li>
+                            <li>Operated at the intersection of sales, marketing, and partnerships, influencing both revenue and brand positioning</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Partnerships</span>
+                            <span class="tech-tag">Negotiation</span>
+                            <span class="tech-tag">Cross-Functional Influence</span>
+                            <span class="tech-tag">Executive Communication</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="ss-go-top">
-            <a class="smoothscroll" title="Back to Top" href="#top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z"/></svg>
-             </a>
-        </div> <!-- end ss-go-top -->
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+        <div class="container-fluid">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <!-- Projects Row 1: Technical Projects -->
+            <div class="projects-row">
+                <h3 class="row-title">Technical Projects & Developer Experience</h3>
+                <div class="projects-slider" id="techProjects">
+                    
+                    <div class="project-card" data-category="AI">
+                        <div class="project-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <i class="fas fa-robot fa-3x"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>CloudDani Concierge</h4>
+                            <p class="project-status">In Progress</p>
+                            <p class="project-description">
+                                AI-powered interactive résumé using RAG architecture with OpenAI GPT-4o and vector database. 
+                                Positions documentation as an intelligent, conversational layer.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">OpenAI GPT-4o</span>
+                                <span class="tag">Pinecone</span>
+                                <span class="tag">RAG</span>
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="DevTools">
+                        <div class="project-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <i class="fas fa-tools fa-3x"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>EKS Configurator</h4>
+                            <p class="project-status">Live Demo Available</p>
+                            <p class="project-description">
+                                Web-based configurator that automates EKS cluster configuration for Weaviate deployments. 
+                                Generates validated YAML through a guided UI.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Kubernetes</span>
+                                <span class="tag">EKS</span>
+                                <span class="tag">Streamlit</span>
+                                <span class="tag">Python</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://k8s-config-nzfndvmnwxppa6zegwocxm.streamlit.app/" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> View Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="Cloud">
+                        <div class="project-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <i class="fas fa-cloud fa-3x"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>CloudDani Portfolio</h4>
+                            <p class="project-status">Production</p>
+                            <p class="project-description">
+                                Full-stack cloud resume built on AWS using serverless architecture. Treats the site as a 
+                                documentation experience with clear navigation and case-study project write-ups.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">AWS S3</span>
+                                <span class="tag">CloudFront</span>
+                                <span class="tag">Lambda</span>
+                                <span class="tag">DynamoDB</span>
+                                <span class="tag">GitHub Actions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Projects Row 2: Speaking & Community -->
+            <div class="projects-row">
+                <h3 class="row-title">Speaking & Community Engagement</h3>
+                <div class="projects-slider" id="speakingProjects">
+                    
+                    <div class="project-card" data-category="Speaking">
+                        <div class="project-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                                <i class="fas fa-microphone fa-3x"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Technical Storytelling Webinar</h4>
+                            <p class="project-status">3percentclub</p>
+                            <p class="project-description">
+                                Guest speaker delivering a webinar on technical writing career paths and creating compelling 
+                                narratives around technical products and platforms.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Public Speaking</span>
+                                <span class="tag">Technical Writing</span>
+                                <span class="tag">Career Development</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="Community">
+                        <div class="project-image">
+                            <div class="project-placeholder" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                                <i class="fas fa-blog fa-3x"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Technical Blog</h4>
+                            <p class="project-status">Active</p>
+                            <p class="project-description">
+                                Sharing insights on documentation strategy, developer experience, and cloud engineering 
+                                through written content and tutorials.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Writing</span>
+                                <span class="tag">Developer Education</span>
+                                <span class="tag">Best Practices</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://blog.clouddani.com" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> Visit Blog
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="contact-title">Let's Collaborate!</h2>
+                <p class="contact-lead">
+                    If you believe that documentation should be treated as a core part of the developer experience, 
+                    I would love to talk about how I can help.
+                </p>
+                <a href="mailto:shakara.washington02@gmail.com" class="btn btn-contact">
+                    <i class="fas fa-envelope"></i> Start a Conversation
+                </a>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/danielle-washington-8b4644206" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/DanielleWashington/cloudresumechallenge" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://blog.clouddani.com" target="_blank" class="social-link">
+                        <i class="fa fa-globe"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    © 2024 Cloud Dani. Built with ☁️ on AWS.
+                </p>
+                <p class="footer-subtext">
+                    Where documentation meets storytelling, and the cloud meets creativity.
+                </p>
+            </div>
+        </div>
     </footer>
 
-
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <!-- JavaScript -->
+    <script src="js/intro-animation.js"></script>
+    <script src="js/netflix-scripts.js"></script>
+    <script src="js/chatbot.js"></script>
 
 </body>
-
 </html>

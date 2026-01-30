@@ -1,0 +1,280 @@
+/* ============================================
+   Netflix-Style Intro Animation for CloudDani
+   ============================================ */
+
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.intro-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-screen.hidden {
+    display: none;
+}
+
+/* Main intro logo container */
+.intro-logo {
+    position: relative;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: #E50914;
+    text-shadow: 
+        0 0 20px rgba(229, 9, 20, 0.8),
+        0 0 40px rgba(229, 9, 20, 0.6),
+        0 0 60px rgba(229, 9, 20, 0.4);
+    animation: introReveal 3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transform-origin: center;
+}
+
+/* Main reveal animation */
+@keyframes introReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+        letter-spacing: -0.2em;
+    }
+    15% {
+        opacity: 1;
+        transform: scale(1.1);
+        letter-spacing: 0.15em;
+    }
+    30% {
+        transform: scale(1);
+        letter-spacing: 0.1em;
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animated glow pulse */
+.intro-logo::before {
+    content: 'CLOUDDANI';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    text-shadow: 
+        0 0 30px rgba(229, 9, 20, 0.6),
+        0 0 60px rgba(229, 9, 20, 0.4),
+        0 0 90px rgba(229, 9, 20, 0.2);
+    animation: glowPulse 2s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.5;
+        text-shadow: 
+            0 0 20px rgba(229, 9, 20, 0.6),
+            0 0 40px rgba(229, 9, 20, 0.4),
+            0 0 60px rgba(229, 9, 20, 0.2);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 
+            0 0 40px rgba(229, 9, 20, 0.8),
+            0 0 80px rgba(229, 9, 20, 0.6),
+            0 0 120px rgba(229, 9, 20, 0.4);
+    }
+}
+
+/* Animated background gradient */
+.intro-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(229, 9, 20, 0.15) 0%,
+        rgba(0, 0, 0, 1) 70%
+    );
+    animation: backgroundPulse 3s ease-out;
+    z-index: -1;
+}
+
+@keyframes backgroundPulse {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Sound wave effect */
+.sound-waves {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+}
+
+.sound-wave {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(229, 9, 20, 0.3);
+    border-radius: 50%;
+    animation: soundWaveExpand 2s ease-out forwards;
+}
+
+.sound-wave:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.sound-wave:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.sound-wave:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes soundWaveExpand {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+        border-width: 3px;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+/* Skip intro button */
+.skip-intro {
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    animation: skipButtonFade 0.5s ease-out 1.5s forwards;
+}
+
+@keyframes skipButtonFade {
+    to {
+        opacity: 1;
+    }
+}
+
+.skip-intro:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.skip-intro:active {
+    transform: scale(0.95);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .intro-logo {
+        font-size: clamp(3rem, 12vw, 6rem);
+    }
+    
+    .skip-intro {
+        bottom: 3rem;
+        right: 3rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-logo {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    
+    .skip-intro {
+        bottom: 2rem;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .skip-intro:hover {
+        transform: translateX(50%) scale(1.05);
+    }
+}
+
+/* Particle effects (optional enhancement) */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(229, 9, 20, 0.5);
+    border-radius: 50%;
+    animation: particleFloat 3s ease-out forwards;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(1);
+    }
+}
