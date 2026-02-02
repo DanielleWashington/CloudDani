@@ -196,7 +196,7 @@ const PORTFOLIO_KNOWLEDGE = {
     },
     
     stats: {
-        yearsExperience: "3+",
+        yearsExperience: "10+",
         projectsCompleted: "50+",
         majorPlatforms: "5+"
     }
