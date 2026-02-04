@@ -257,13 +257,6 @@ function initVisitorCounter() {
 
 async function fetchVisitorCount(endpoint, element) {
     try {
-        // Check if we have a valid endpoint configured
-        if (endpoint === 'https://ikpwxosww6lds75pwnk3r6ozdu0thjky.lambda-url.us-east-1.on.aws/') {
-            // Use demo counter for now
-            animateCounter(element, 1234);
-            return;
-        }
-        
         const response = await fetch(endpoint, {
             method: 'POST',
             headers: {
@@ -272,17 +265,17 @@ async function fetchVisitorCount(endpoint, element) {
         });
         
         if (!response.ok) {
-            throw new Error('API request failed');
+            throw new Error(`API request failed with status: ${response.status}`);
         }
         
         const data = await response.json();
-        const count = data.visitor_count || data.count || 0;
+        const count = data.count || data.visitor_count || 0;
         
+        console.log('Visitor count fetched successfully:', count);
         animateCounter(element, count);
     } catch (error) {
         console.error('Error fetching visitor count:', error);
-        // Fallback to demo counter
-        animateCounter(element, 1234);
+        element.textContent = 'Error loading count';
     }
 }
 
