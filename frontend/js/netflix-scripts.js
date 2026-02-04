@@ -249,7 +249,7 @@ function initVisitorCounter() {
     const counterElement = document.getElementById('visitorCount');
     
     // API endpoint - update this with your actual Lambda endpoint
-    const API_ENDPOINT = 'YOUR_API_GATEWAY_ENDPOINT_HERE';
+    const API_ENDPOINT = 'https://ikpwxosww6lds75pwnk3r6ozdu0thjky.lambda-url.us-east-1.on.aws/';
     
     // Try to fetch visitor count from API
     fetchVisitorCount(API_ENDPOINT, counterElement);
@@ -258,7 +258,7 @@ function initVisitorCounter() {
 async function fetchVisitorCount(endpoint, element) {
     try {
         // Check if we have a valid endpoint configured
-        if (endpoint === 'YOUR_API_GATEWAY_ENDPOINT_HERE') {
+        if (endpoint === 'https://ikpwxosww6lds75pwnk3r6ozdu0thjky.lambda-url.us-east-1.on.aws/') {
             // Use demo counter for now
             animateCounter(element, 1234);
             return;
