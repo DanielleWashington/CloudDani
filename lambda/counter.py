@@ -26,30 +26,3 @@ def lambda_handler(event, context):
         # Ensure views is an int (not Decimal) before JSON serialization
         views = int(views)
         
-        # Return properly formatted response with CORS headers
-        return {
-            'statusCode': 200,
-            'headers': {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS'
-            },
-            'body': json.dumps({'count': views})
-        }
-        
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        
-        return {
-            'statusCode': 500,
-            'headers': {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS'
-            },
-            'body': json.dumps({'error': str(e), 'count': 0})
-        }
