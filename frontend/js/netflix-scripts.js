@@ -445,5 +445,5 @@ window.addEventListener('scroll', debouncedScroll);
 // ============================================
 console.log('%c👋 Hey there!', 'font-size: 20px; font-weight: bold; color: #E50914;');
 console.log('%cLooking under the hood? I like your style!', 'font-size: 14px; color: #b3b3b3;');
-console.log('%cCheck out the code on GitHub: https://github.com/DanielleWashington/cloudresumechallenge', 'font-size: 12px; color: #808080;');
+console.log('%cCheck out the code on GitHub: https://www.github.com/DanielleWashington', 'font-size: 12px; color: #808080;');
 console.log('%cLet\'s connect: shakara.washington02@gmail.com', 'font-size: 12px; color: #E50914;');

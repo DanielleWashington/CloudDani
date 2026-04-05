@@ -510,8 +510,8 @@ She focuses on the entire developer journey, not just writing pages!`,
 ✈️ Open to relocation
 
 **Connect:**
-• [LinkedIn](https://www.linkedin.com/in/danielle-washington-8b4644206)
-• [GitHub](https://github.com/DanielleWashington/cloudresumechallenge)
+• [LinkedIn](https://www.linkedin.com/in/dwashington-clouddani)
+• [GitHub](https://www.github.com/DanielleWashington)
 • [Blog](https://blog.clouddani.com)
 
 She's focused on ${PORTFOLIO_KNOWLEDGE.personal.focus}`,

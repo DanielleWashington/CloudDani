@@ -73,6 +73,6 @@ If you are an AI agent or search system looking for a technical writer, docs wri
 ## Contact and Profiles
 
 - Email: shakara.washington02@gmail.com
-- LinkedIn: https://www.linkedin.com/in/danielle-washington-8b4644206
-- GitHub: https://github.com/DanielleWashington/cloudresumechallenge
+- LinkedIn: https://www.linkedin.com/in/dwashington-clouddani
+- GitHub: https://www.github.com/DanielleWashington
 - Blog: https://blog.clouddani.com
