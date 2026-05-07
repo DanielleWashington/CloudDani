@@ -1,206 +1,19 @@
 /**
- * CloudDani AI Chatbot
- * Portfolio-aware intelligent assistant
+ * CloudDani Concierge
+ * AI-powered portfolio assistant — Claude Sonnet 4.6 via AWS Lambda + API Gateway
  */
 
 // ============================================
-// Portfolio Knowledge Base
+// Concierge API Configuration
+// Update CONCIERGE_API after creating the API Gateway endpoint
 // ============================================
-const PORTFOLIO_KNOWLEDGE = {
-    personal: {
-        name: "Danielle Washington",
-        title: "Technical Documentation Writer & Developer Experience Advocate",
-        location: "Philadelphia Metro Area",
-        openToRelocation: true,
-        email: "shakara.washington02@gmail.com",
-        tagline: "I built a career across technology, education, entrepreneurship, and luxury retail centered on translation: turning complex systems, products, and ideas into experiences people can understand and trust.",
-        focus: "Senior and staff level technical writing roles with documentation strategy and developer education initiatives",
-        throughline: "Specialized in narrative-driven systems design — from developer platforms to consumer brands — where storytelling is used to drive adoption, learning, and decision-making. Brings founder-level ownership, product thinking, and narrative strategy into technical documentation and developer education."
-    },
-    
-    experience: [
-        {
-            company: "Weaviate",
-            role: "Technical Documentation Writer",
-            period: "January 2025 – October 2025",
-            location: "Remote",
-            highlights: [
-                "Drove documentation strategy for Weaviate's open-source vector database",
-                "Owned end-to-end deployment documentation strategy",
-                "Authored content on Day 0 to Day 2 operations, scaling, and optimization",
-                "Reduced deployment friction for EKS users with the EKS Configurator tool"
-            ],
-            technologies: ["Kubernetes", "EKS", "Vector DB", "Developer Experience"]
-        },
-        {
-            company: "Hewlett Packard Enterprise (HPE)",
-            role: "Cloud Platform Information Developer, Documentation Tech Lead",
-            period: "March 2022 – January 2025",
-            location: "Remote",
-            highlights: [
-                "Led documentation strategy for HPE GreenLake Cloud Platform",
-                "Architected developer portals using Redocly, Backstage, and Just the Docs",
-                "Eliminated documentation technical debt through automated link checking",
-                "Led cross-functional alignment sessions with platform developers"
-            ],
-            technologies: ["AWS", "Redocly", "Backstage", "GitHub Actions", "Hybrid Cloud"]
-        },
-        {
-            company: "Gaia (formerly GaiaNet)",
-            role: "Web3 Information Developer",
-            period: "Contract",
-            location: "Remote",
-            highlights: [
-                "Delivered comprehensive technical documentation for Web3 and AI platform",
-                "Produced API documentation, integration guides, and tutorials",
-                "Maintained consistency through style guides and templates"
-            ],
-            technologies: ["Web3", "API Documentation", "Developer Onboarding"]
-        },
-        {
-            company: "Sarithm Inc. (HPE Contract)",
-            role: "API Technical Writer",
-            period: "August 2021 – February 2022",
-            location: "Remote",
-            highlights: [
-                "Partnered with Scrum teams to document GreenLake Cloud Platform",
-                "Created API reference content, user guides, and release notes"
-            ],
-            technologies: ["API Documentation", "Agile", "Cloud Platform"]
-        }
-    ],
-    
-    earlierExperience: [
-        {
-            company: "Home Fragrance & Storytelling Brand",
-            role: "Founder & Operator",
-            period: "2017 – 2021",
-            highlights: [
-                "Founded and operated a DTC brand built around narrative design, where each product line was anchored to destination-based stories and long-form content",
-                "Designed and executed full brand strategy: product concept, narrative architecture, packaging voice, blog editorial calendar, and customer experience",
-                "Wrote and published destination essays connecting sensory design to cultural and emotional storytelling",
-                "Managed end-to-end operations: sourcing, manufacturing, pricing, marketing, fulfillment",
-                "Developed early product-market fit through narrative-driven branding rather than paid acquisition"
-            ],
-            signals: ["Founder Mindset", "Product Storytelling", "Brand Systems", "Narrative Strategy"]
-        },
-        {
-            company: "Spain (Children & Curriculum Design)",
-            role: "English Teacher",
-            period: "2016 – 2017",
-            highlights: [
-                "Designed and delivered structured lesson plans for children across multiple age groups in a multilingual environment",
-                "Adapted curriculum to diverse learning styles, cultural contexts, and developmental stages",
-                "Built foundational skills in pedagogy, instructional design, and learner-centric communication",
-                "Developed expertise in explaining complex concepts simply and sequencing knowledge for retention"
-            ],
-            signals: ["Pedagogy", "Instructional Design", "Learner Empathy", "Communication Architecture"]
-        },
-        {
-            company: "Luxury Jewelry Retail (High-End Department Store)",
-            role: "Partnerships & Marketing",
-            period: "2014 – 2016",
-            highlights: [
-                "Led brand partnerships and in-store marketing strategy for an independent luxury jewelry company",
-                "Negotiated cross-brand collaborations with global beauty and luxury brands (SpaceNK, Jo Malone)",
-                "Worked directly with fashion stylists to place products on models for in-store events",
-                "Designed and executed partnership campaigns blending retail, events, and visual storytelling",
-                "Operated at the intersection of sales, marketing, and partnerships"
-            ],
-            signals: ["Partnerships", "Negotiation", "Cross-Functional Influence", "Executive Communication"]
-        }
-    ],
-    
-    projects: [
-        {
-            name: "CloudDani Concierge",
-            status: "In Progress",
-            description: "AI-powered interactive résumé using RAG architecture with OpenAI GPT-4o and Pinecone vector database",
-            technologies: ["OpenAI GPT-4o", "Pinecone", "RAG", "Python"],
-            purpose: "Positions documentation as an intelligent, conversational layer"
-        },
-        {
-            name: "EKS Configurator",
-            status: "Live",
-            description: "Web-based configurator that automates EKS cluster configuration for Weaviate deployments",
-            technologies: ["Kubernetes", "EKS", "Streamlit", "Python"],
-            link: "https://k8s-config-nzfndvmnwxppa6zegwocxm.streamlit.app/",
-            purpose: "Bridges documentation and implementation, reducing deployment time"
-        },
-        {
-            name: "CloudDani Portfolio",
-            status: "Production",
-            description: "Full-stack cloud resume built on AWS using serverless architecture",
-            technologies: ["AWS S3", "CloudFront", "Lambda", "DynamoDB", "GitHub Actions"],
-            purpose: "Documentation-focused portfolio showcasing cloud engineering skills"
-        }
-    ],
-    
-    skills: {
-        core: [
-            "Technical Documentation Strategy",
-            "Developer Experience (DevEx)",
-            "Documentation-as-Code",
-            "API Documentation",
-            "Developer Portals",
-            "Technical Writing",
-            "Content Strategy"
-        ],
-        tools: [
-            "Redocly",
-            "Backstage",
-            "Just the Docs",
-            "GitHub Actions",
-            "Markdown",
-            "Git",
-            "CI/CD pipelines"
-        ],
-        technologies: [
-            "AWS (S3, CloudFront, Lambda, DynamoDB, API Gateway)",
-            "Kubernetes",
-            "EKS",
-            "Docker",
-            "Python",
-            "JavaScript",
-            "HTML/CSS",
-            "Vector Databases"
-        ],
-        specialties: [
-            "Cloud Platform Documentation",
-            "Kubernetes/Container Documentation",
-            "AI/ML System Documentation",
-            "Developer Onboarding",
-            "Documentation Automation",
-            "Cross-functional Collaboration"
-        ]
-    },
-    
-    speaking: [
-        {
-            title: "Technical Storytelling Webinar",
-            organization: "3percentclub",
-            type: "Guest Speaker",
-            topics: ["Technical Writing Career Paths", "Creating Compelling Narratives", "Senior/Staff Level Roles"]
-        }
-    ],
-    
-    philosophy: {
-        approach: "I think in terms of developer journeys, not just individual pages. I care about what developers are trying to do, where they get stuck, and how documentation can remove friction at every step.",
-        values: [
-            "Documentation as a core part of developer experience",
-            "Treating documentation as product, not afterthought",
-            "Developer-first thinking",
-            "Reducing support burden through better docs",
-            "Continuous improvement and iteration"
-        ]
-    },
-    
-    stats: {
-        yearsExperience: "10+",
-        projectsCompleted: "50+",
-        majorPlatforms: "5+"
-    }
-};
+const CONCIERGE_API = 'https://REPLACE_WITH_API_GATEWAY_URL/chat';
+
+// ============================================
+// Conversation History (multi-turn context)
+// Sent to the Lambda on each request so Claude remembers prior turns
+// ============================================
+let conversationHistory = [];
 
 // ============================================
 // Chatbot State
@@ -208,7 +21,8 @@ const PORTFOLIO_KNOWLEDGE = {
 let chatState = {
     isOpen: false,
     messages: [],
-    isTyping: false
+    isTyping: false,
+    isSending: false
 };
 
 // ============================================
@@ -240,10 +54,10 @@ function createChatbotHTML() {
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="chat-header-text">
-                        <h3>CloudDani Assistant</h3>
+                        <h3>CloudDani Concierge</h3>
                         <div class="chat-status">
                             <span class="status-dot"></span>
-                            <span>Online</span>
+                            <span>Powered by Claude</span>
                         </div>
                     </div>
                 </div>
@@ -276,11 +90,11 @@ function createChatbotHTML() {
 
             <!-- Chat Input -->
             <div class="chat-input-area">
-                <input 
-                    type="text" 
-                    class="chat-input" 
-                    id="chatInput" 
-                    placeholder="Ask me about Danielle's experience..."
+                <input
+                    type="text"
+                    class="chat-input"
+                    id="chatInput"
+                    placeholder="Ask me about Danielle..."
                     autocomplete="off"
                 />
                 <button class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
@@ -289,7 +103,7 @@ function createChatbotHTML() {
             </div>
         </div>
     `;
-    
+
     document.body.insertAdjacentHTML('beforeend', chatbotHTML);
 }
 
@@ -298,18 +112,16 @@ function createChatbotHTML() {
 // ============================================
 function setupChatbotEventListeners() {
     const chatButton = document.getElementById('chatButton');
-    const chatClose = document.getElementById('chatClose');
+    const chatClose  = document.getElementById('chatClose');
     const chatSendBtn = document.getElementById('chatSendBtn');
-    const chatInput = document.getElementById('chatInput');
-    
+    const chatInput  = document.getElementById('chatInput');
+
     chatButton.addEventListener('click', toggleChat);
     chatClose.addEventListener('click', toggleChat);
     chatSendBtn.addEventListener('click', sendMessage);
-    
+
     chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
+        if (e.key === 'Enter') sendMessage();
     });
 }
 
@@ -319,9 +131,9 @@ function setupChatbotEventListeners() {
 function toggleChat() {
     const chatWindow = document.getElementById('chatWindow');
     const chatButton = document.getElementById('chatButton');
-    
+
     chatState.isOpen = !chatState.isOpen;
-    
+
     if (chatState.isOpen) {
         chatWindow.classList.add('active');
         chatButton.classList.add('active');
@@ -337,229 +149,98 @@ function toggleChat() {
 // Add Welcome Message
 // ============================================
 function addWelcomeMessage() {
-    const welcomeMsg = {
+    addMessage({
         type: 'bot',
-        content: `Hi! I'm CloudDani's AI assistant. I can answer questions about Danielle's experience, projects, skills, and career journey. What would you like to know?`,
+        content: `Hi! I'm the CloudDani Concierge — ask me anything about Danielle's career, projects, documentation philosophy, or how to get in touch.`,
         time: getCurrentTime()
-    };
-    
-    addMessage(welcomeMsg);
-    
-    // Add quick replies
+    });
+
     showQuickReplies([
-        "Tell me about her experience",
-        "What projects has she worked on?",
-        "What are her key skills?",
-        "How can I contact her?"
+        "What did she do at Weaviate?",
+        "Tell me about her projects",
+        "What's her documentation philosophy?",
+        "Is she available to hire?"
     ]);
 }
 
 // ============================================
 // Send Message
 // ============================================
-function sendMessage() {
+async function sendMessage() {
     const input = document.getElementById('chatInput');
     const message = input.value.trim();
-    
-    if (!message) return;
-    
-    // Add user message
-    addMessage({
-        type: 'user',
-        content: message,
-        time: getCurrentTime()
-    });
-    
+
+    if (!message || chatState.isSending) return;
+
+    // Add user message to UI
+    addMessage({ type: 'user', content: message, time: getCurrentTime() });
     input.value = '';
     hideQuickReplies();
-    
-    // Show typing indicator
-    showTyping();
-    
-    // Generate response
-    setTimeout(() => {
-        const response = generateResponse(message);
-        hideTyping();
+    setLoading(true);
+
+    try {
+        const reply = await fetchConciergeResponse(message);
+        addMessage({ type: 'bot', content: reply, time: getCurrentTime() });
+    } catch (err) {
+        console.error('Concierge error:', err);
         addMessage({
             type: 'bot',
-            content: response.message,
+            content: `Sorry, I'm having trouble connecting right now. You can reach Danielle directly at <a href="mailto:shakara.washington02@gmail.com">shakara.washington02@gmail.com</a>.`,
             time: getCurrentTime()
         });
-        
-        if (response.quickReplies) {
-            showQuickReplies(response.quickReplies);
-        }
-    }, 1000 + Math.random() * 1000); // Random delay for realism
+    } finally {
+        setLoading(false);
+    }
 }
 
 // ============================================
-// Generate AI Response
+// Fetch Response from Concierge API
 // ============================================
-function generateResponse(userMessage) {
-    const msg = userMessage.toLowerCase();
-    
-    // Experience questions
-    if (msg.includes('experience') || msg.includes('work') || msg.includes('job') || msg.includes('career')) {
-        return {
-            message: `Danielle has ${PORTFOLIO_KNOWLEDGE.stats.yearsExperience} years of experience in technical documentation and developer experience. Her recent roles include:
+async function fetchConciergeResponse(userMessage) {
+    const MAX_HISTORY = 12; // keep last 12 messages (6 turns)
 
-• **Weaviate** - Technical Documentation Writer (2025)
-  Leading docs strategy for their vector database
+    const res = await fetch(CONCIERGE_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            message: userMessage,
+            history: conversationHistory.slice(-MAX_HISTORY)
+        })
+    });
 
-• **HPE** - Documentation Tech Lead (2022-2025)  
-  Led strategy for GreenLake Cloud Platform
-
-• **Gaia** - Web3 Information Developer (Contract)
-  Documentation for Web3 and AI platforms
-
-Would you like to know more about a specific role?`,
-            quickReplies: ["Tell me about Weaviate", "Tell me about HPE", "What about her projects?"]
-        };
+    if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
     }
-    
-    // Weaviate-specific
-    if (msg.includes('weaviate')) {
-        const weaviate = PORTFOLIO_KNOWLEDGE.experience[0];
-        return {
-            message: `At **Weaviate**, Danielle worked as a Technical Documentation Writer from ${weaviate.period}. Key achievements:
 
-${weaviate.highlights.map(h => `• ${h}`).join('\n')}
+    const { reply } = await res.json();
 
-Technologies: ${weaviate.technologies.join(', ')}`,
-            quickReplies: ["What projects has she built?", "Tell me about HPE", "What are her skills?"]
-        };
+    // Update conversation history for next turn
+    conversationHistory.push(
+        { role: 'user',      content: userMessage },
+        { role: 'assistant', content: reply }
+    );
+
+    return reply;
+}
+
+// ============================================
+// Loading State
+// ============================================
+function setLoading(loading) {
+    chatState.isSending = loading;
+    const sendBtn = document.getElementById('chatSendBtn');
+    const input   = document.getElementById('chatInput');
+
+    if (loading) {
+        showTyping();
+        sendBtn.disabled = true;
+        input.disabled   = true;
+    } else {
+        hideTyping();
+        sendBtn.disabled = false;
+        input.disabled   = false;
+        input.focus();
     }
-    
-    // HPE-specific
-    if (msg.includes('hpe') || msg.includes('hewlett') || msg.includes('greenlake')) {
-        const hpe = PORTFOLIO_KNOWLEDGE.experience[1];
-        return {
-            message: `At **HPE**, Danielle was a Cloud Platform Information Developer and Documentation Tech Lead from ${hpe.period}. Highlights:
-
-${hpe.highlights.map(h => `• ${h}`).join('\n')}
-
-She worked with: ${hpe.technologies.join(', ')}`,
-            quickReplies: ["What about Weaviate?", "Tell me about her projects", "What are her skills?"]
-        };
-    }
-    
-    // Projects
-    if (msg.includes('project') || msg.includes('built') || msg.includes('portfolio') || msg.includes('work sample')) {
-        return {
-            message: `Danielle has worked on several impressive projects:
-
-**1. CloudDani Concierge** (In Progress)
-AI-powered interactive résumé using GPT-4o and Pinecone
-Tech: ${PORTFOLIO_KNOWLEDGE.projects[0].technologies.join(', ')}
-
-**2. EKS Configurator** (Live)
-Web tool for automating Kubernetes deployments
-Tech: ${PORTFOLIO_KNOWLEDGE.projects[1].technologies.join(', ')}
-[View Demo](${PORTFOLIO_KNOWLEDGE.projects[1].link})
-
-**3. CloudDani Portfolio** (Production)
-Serverless portfolio on AWS
-Tech: ${PORTFOLIO_KNOWLEDGE.projects[2].technologies.join(', ')}
-
-Which project interests you most?`,
-            quickReplies: ["Tell me about the EKS Configurator", "What about the AI project?", "Her experience?"]
-        };
-    }
-    
-    // Skills
-    if (msg.includes('skill') || msg.includes('technolog') || msg.includes('tool') || msg.includes('know')) {
-        return {
-            message: `Danielle's expertise spans several areas:
-
-**Core Skills:**
-${PORTFOLIO_KNOWLEDGE.skills.core.slice(0, 5).map(s => `• ${s}`).join('\n')}
-
-**Technologies:**
-${PORTFOLIO_KNOWLEDGE.skills.technologies.slice(0, 6).map(s => `• ${s}`).join('\n')}
-
-**Specialties:**
-${PORTFOLIO_KNOWLEDGE.skills.specialties.slice(0, 4).map(s => `• ${s}`).join('\n')}
-
-She's particularly strong in documentation strategy and developer experience!`,
-            quickReplies: ["What's her approach?", "Tell me about her projects", "How can I contact her?"]
-        };
-    }
-    
-    // Philosophy/Approach
-    if (msg.includes('approach') || msg.includes('philosophy') || msg.includes('think') || msg.includes('style')) {
-        return {
-            message: `Danielle's approach to documentation is unique:
-
-"${PORTFOLIO_KNOWLEDGE.philosophy.approach}"
-
-**Key Values:**
-${PORTFOLIO_KNOWLEDGE.philosophy.values.slice(0, 4).map(v => `• ${v}`).join('\n')}
-
-She focuses on the entire developer journey, not just writing pages!`,
-            quickReplies: ["What are her skills?", "Tell me about her projects", "How can I reach her?"]
-        };
-    }
-    
-    // Contact
-    if (msg.includes('contact') || msg.includes('reach') || msg.includes('email') || msg.includes('connect') || msg.includes('hire')) {
-        return {
-            message: `You can reach Danielle:
-
-📧 **Email:** ${PORTFOLIO_KNOWLEDGE.personal.email}
-📍 **Location:** ${PORTFOLIO_KNOWLEDGE.personal.location}
-✈️ Open to relocation
-
-**Connect:**
-• [LinkedIn](https://www.linkedin.com/in/dwashington-clouddani)
-• [GitHub](https://www.github.com/DanielleWashington)
-• [Blog](https://blog.clouddani.com)
-
-She's focused on ${PORTFOLIO_KNOWLEDGE.personal.focus}`,
-            quickReplies: ["What's her experience?", "Tell me about her projects"]
-        };
-    }
-    
-    // Speaking
-    if (msg.includes('speak') || msg.includes('presentation') || msg.includes('talk') || msg.includes('webinar')) {
-        const speaking = PORTFOLIO_KNOWLEDGE.speaking[0];
-        return {
-            message: `Danielle has spoken at:
-
-**${speaking.title}**
-Organization: ${speaking.organization}
-Topics: ${speaking.topics.join(', ')}
-
-She shares insights on technical writing careers and creating compelling technical narratives!`,
-            quickReplies: ["What are her skills?", "Tell me about her projects", "How can I contact her?"]
-        };
-    }
-    
-    // Stats
-    if (msg.includes('statistic') || msg.includes('number') || msg.includes('how many') || msg.includes('how much')) {
-        return {
-            message: `Here are some quick stats:
-
-📊 **${PORTFOLIO_KNOWLEDGE.stats.yearsExperience}** years of experience
-📝 **${PORTFOLIO_KNOWLEDGE.stats.projectsCompleted}** documentation projects
-🚀 **${PORTFOLIO_KNOWLEDGE.stats.majorPlatforms}** major platforms documented
-
-She's worked with companies like Weaviate, HPE, and emerging Web3 startups!`,
-            quickReplies: ["Tell me about her experience", "What projects has she built?"]
-        };
-    }
-    
-    // Default/Fallback
-    return {
-        message: `I can help you learn about Danielle's:
-• Professional experience and career journey
-• Technical projects and portfolio work
-• Skills, technologies, and expertise
-• Documentation philosophy and approach
-• Contact information
-
-What would you like to know more about?`,
-        quickReplies: ["Her experience", "Her projects", "Her skills", "Contact info"]
-    };
 }
 
 // ============================================
@@ -567,7 +248,7 @@ What would you like to know more about?`,
 // ============================================
 function addMessage(message) {
     const messagesContainer = document.getElementById('chatMessages');
-    
+
     const messageHTML = `
         <div class="message ${message.type}">
             <div class="message-avatar">
@@ -579,23 +260,19 @@ function addMessage(message) {
             </div>
         </div>
     `;
-    
+
     messagesContainer.insertAdjacentHTML('beforeend', messageHTML);
     chatState.messages.push(message);
     scrollToBottom();
 }
 
 // ============================================
-// Format Message (Markdown-like)
+// Format Message (light markdown)
 // ============================================
 function formatMessage(text) {
-    // Bold
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    // Links
-    text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
-    // Line breaks
+    text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
     text = text.replace(/\n/g, '<br>');
-    
     return text;
 }
 
@@ -603,21 +280,21 @@ function formatMessage(text) {
 // Quick Replies
 // ============================================
 function showQuickReplies(replies) {
-    const quickRepliesContainer = document.getElementById('quickReplies');
-    quickRepliesContainer.innerHTML = '';
-    
+    const container = document.getElementById('quickReplies');
+    container.innerHTML = '';
+
     replies.forEach(reply => {
-        const button = document.createElement('button');
-        button.className = 'quick-reply-btn';
-        button.textContent = reply;
-        button.addEventListener('click', () => {
+        const btn = document.createElement('button');
+        btn.className = 'quick-reply-btn';
+        btn.textContent = reply;
+        btn.addEventListener('click', () => {
             document.getElementById('chatInput').value = reply;
             sendMessage();
         });
-        quickRepliesContainer.appendChild(button);
+        container.appendChild(btn);
     });
-    
-    quickRepliesContainer.classList.add('active');
+
+    container.classList.add('active');
 }
 
 function hideQuickReplies() {
@@ -642,15 +319,12 @@ function hideTyping() {
 // Utility Functions
 // ============================================
 function scrollToBottom() {
-    const messagesContainer = document.getElementById('chatMessages');
-    setTimeout(() => {
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }, 100);
+    const container = document.getElementById('chatMessages');
+    setTimeout(() => { container.scrollTop = container.scrollHeight; }, 100);
 }
 
 function getCurrentTime() {
-    const now = new Date();
-    return now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 }
 
 // ============================================
@@ -662,9 +336,4 @@ if (document.readyState === 'loading') {
     initChatbot();
 }
 
-// ============================================
-// Console Debug
-// ============================================
-console.log('%c💬 CloudDani Chatbot Loaded', 'font-size: 14px; font-weight: bold; color: #E50914;');
-console.log('%cKnowledge Base:', 'font-size: 12px; color: #b3b3b3;');
-console.log(PORTFOLIO_KNOWLEDGE);
+console.log('%c💬 CloudDani Concierge loaded — powered by Claude Sonnet 4.6', 'font-size: 13px; font-weight: bold; color: #E8135A;');

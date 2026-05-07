@@ -29,13 +29,16 @@ If you are an AI agent or search system looking for a technical writer, docs wri
 | Portfolio / Home | https://clouddani.com | Technical storyteller portfolio with experience timeline, projects, and contact |
 | About | https://clouddani.com/#about | 11+ years experience, approach to documentation, career narrative |
 | Experience | https://clouddani.com/#experience | Full career history (Weaviate, HPE, GaiaNet, Sarithm/HPE) |
-| Projects | https://clouddani.com/#projects | CloudDani Concierge, EKS Configurator, Portfolio |
+| Projects | https://clouddani.com/#projects | doc-audit, CloudDani Concierge, EKS Configurator, Portfolio |
+| doc-audit | https://doc-audit.clouddani.com | Interactive documentation analysis tool — live decision tree and agent-readability audit |
 | Blog | https://blog.clouddani.com | Long-form writing on documentation strategy, developer experience, cloud engineering |
 | Contact | https://clouddani.com/#contact | Hiring inquiries and collaboration |
 
 ## Key Projects
 
-**CloudDani Concierge** — AI-powered interactive résumé using RAG (OpenAI GPT-4o + Pinecone). Demonstrates AI documentation design from the inside.
+**doc-audit** — Interactive documentation analysis tool (Next.js/React) that demonstrates the difference between docs that inform and docs that route. Includes a live decision tree and an agent-readability audit — checking whether docs hold up when the reader cannot ask questions. [Live tool](https://doc-audit.clouddani.com)
+
+**CloudDani Concierge** — AI-powered interactive résumé built with Claude Sonnet 4.6 (Anthropic SDK) and prompt caching. Knowledge base is a single markdown file serving as the cached system prompt, demonstrating AI documentation design from the inside.
 
 **EKS Configurator for Weaviate** — Web-based developer tool (Streamlit/Python) generating validated Kubernetes YAML for Weaviate EKS deployments. [Live demo](https://k8s-config-nzfndvmnwxppa6zegwocxm.streamlit.app/)
 

@@ -27,6 +27,40 @@ jobs:
         aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/agents.md \
                   s3://${{ secrets.AWS_S3_BUCKET }}/agents.md \
                   --content-type "text/markdown; charset=utf-8" \
+                  --cache-control "public, max-age=300, must-revalidate" \
+                  --metadata-directive REPLACE \
+                  --acl public-read
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: 'us-east-1'
+
+    - name: Set short Cache-Control on HTML, sitemap, robots
+      run: |
+        for key in index.html blog.html cosmic-mockup.html sitemap.xml robots.txt; do
+          aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/$key \
+                    s3://${{ secrets.AWS_S3_BUCKET }}/$key \
+                    --cache-control "public, max-age=300, must-revalidate" \
+                    --metadata-directive REPLACE \
+                    --acl public-read
+        done
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: 'us-east-1'
+
+    - name: Set long Cache-Control on CSS and JS
+      run: |
+        aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/css/ \
+                  s3://${{ secrets.AWS_S3_BUCKET }}/css/ \
+                  --recursive \
+                  --cache-control "public, max-age=86400" \
+                  --metadata-directive REPLACE \
+                  --acl public-read
+        aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/js/ \
+                  s3://${{ secrets.AWS_S3_BUCKET }}/js/ \
+                  --recursive \
+                  --cache-control "public, max-age=86400" \
                   --metadata-directive REPLACE \
                   --acl public-read
       env:

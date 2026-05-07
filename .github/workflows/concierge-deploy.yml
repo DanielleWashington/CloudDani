@@ -1,0 +1,64 @@
+name: Deploy Concierge Lambda
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'concierge/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies into package directory
+        run: |
+          pip install -r concierge/requirements.txt -t concierge/package/
+
+      - name: Bundle Lambda package
+        run: |
+          cp concierge/concierge.py concierge/package/
+          cp concierge/knowledge-base.md concierge/package/
+          cd concierge/package
+          zip -r ../../concierge.zip .
+
+      - name: Deploy to Lambda
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-east-1'
+        run: |
+          aws lambda update-function-code \
+            --function-name clouddani-concierge \
+            --zip-file fileb://concierge.zip \
+            --region us-east-1
+
+      - name: Wait for Lambda update to complete
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-east-1'
+        run: |
+          aws lambda wait function-updated \
+            --function-name clouddani-concierge \
+            --region us-east-1
+
+      - name: Tag deployment with git SHA (audit trail)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'us-east-1'
+        run: |
+          aws lambda update-function-configuration \
+            --function-name clouddani-concierge \
+            --environment "Variables={ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }},KB_VERSION=${{ github.sha }}}" \
+            --region us-east-1

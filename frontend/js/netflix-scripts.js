@@ -246,36 +246,41 @@ function addScrollArrows(slider) {
 // Visitor Counter
 // ============================================
 function initVisitorCounter() {
-    const counterElement = document.getElementById('visitorCount');
-    
-    // API endpoint - update this with your actual Lambda endpoint
+    const counterElement = document.getElementById('visitor-count');
+    if (!counterElement) return;
+
+    // API endpoint
     const API_ENDPOINT = 'https://ikpwxosww6lds75pwnk3r6ozdu0thjky.lambda-url.us-east-1.on.aws/';
-    
-    // Try to fetch visitor count from API
+
     fetchVisitorCount(API_ENDPOINT, counterElement);
 }
 
-async function fetchVisitorCount(endpoint, element) {
+async function fetchVisitorCount(endpoint, element, attempt = 0) {
+    const MAX_ATTEMPTS = 3;
+    const RETRY_DELAY_MS = 1500;
+
     try {
         const response = await fetch(endpoint, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            headers: { 'Content-Type': 'application/json' }
         });
-        
+
         if (!response.ok) {
             throw new Error(`API request failed with status: ${response.status}`);
         }
-        
+
         const data = await response.json();
         const count = data.count || data.visitor_count || 0;
-        
+
         console.log('Visitor count fetched successfully:', count);
         animateCounter(element, count);
     } catch (error) {
-        console.error('Error fetching visitor count:', error);
-        element.textContent = 'Error loading count';
+        console.error(`Visitor count fetch failed (attempt ${attempt + 1}):`, error);
+        if (attempt < MAX_ATTEMPTS - 1) {
+            setTimeout(() => fetchVisitorCount(endpoint, element, attempt + 1), RETRY_DELAY_MS);
+        } else {
+            element.textContent = '—';
+        }
     }
 }
 

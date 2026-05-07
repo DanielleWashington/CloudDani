@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloud Dani | Technical Storyteller Portfolio</title>
-    <meta name="description" content="Technical Documentation Writer & Developer Experience Advocate">
+    <meta name="description" content="Technical Documentation Writer & Developer Experience Advocate — 11+ years across cloud platforms, AI/ML, and API documentation.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://clouddani.com/">
 
     <!-- AI agent index -->
     <link rel="ai-index" href="/agents.md" type="text/markdown">
@@ -15,8 +18,17 @@
     <meta property="og:description" content="Technical Documentation Writer & Developer Experience Advocate — 11+ years across cloud platforms, AI/ML, and API documentation.">
     <meta property="og:url" content="https://clouddani.com">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://clouddani.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <!-- Structured data -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cloud Dani | Technical Storyteller Portfolio">
+    <meta name="twitter:description" content="Technical Documentation Writer & Developer Experience Advocate — 11+ years across cloud platforms, AI/ML, and API documentation.">
+    <meta name="twitter:image" content="https://clouddani.com/og-image.png">
+
+    <!-- Structured data — Person -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -33,513 +45,524 @@
     }
     </script>
 
+    <!-- Structured data — Featured Projects -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Featured Projects",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "doc-audit", "url": "https://doc-audit.clouddani.com"},
+        {"@type": "ListItem", "position": 2, "name": "CloudDani Concierge", "url": "https://clouddani.com"},
+        {"@type": "ListItem", "position": 3, "name": "EKS Configurator", "url": "https://k8s-config-nzfndvmnwxppa6zegwocxm.streamlit.app/"},
+        {"@type": "ListItem", "position": 4, "name": "Quantum Leap", "url": "https://productivity-app-rose-one.vercel.app/"}
+      ]
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Special+Elite&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <!-- CSS -->
-    <link rel="stylesheet" href="css/netflix-styles.css">
+    <link rel="stylesheet" href="css/site-styles.css">
     <link rel="stylesheet" href="css/intro-animation.css">
     <link rel="stylesheet" href="css/chatbot-styles.css">
-    
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#E8135A">
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 </head>
 <body>
-    
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar-container">
-            <div class="navbar-left">
-                <a href="#home" class="logo">CLOUD<span>DANI</span></a>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
-            <div class="navbar-right">
-                <a href="https://www.linkedin.com/in/dwashington-clouddani" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://www.github.com/DanielleWashington" target="_blank" class="social-icon">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://blog.clouddani.com" target="_blank" class="social-icon">
-                    <i class="fa fa-globe"></i>
-                </a>
-            </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+
+    <!-- PROMO BAR -->
+    <div class="promo-bar">
+        Wanna see something cool?&nbsp;
+        <a href="https://doc-audit.clouddani.com" target="_blank" rel="noopener">
+            Try doc-audit →
+        </a>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-logo-block">CLOUD<span>DANI</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Journey</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-background"></div>
+    <!-- HERO -->
+    <section class="hero">
         <div class="hero-content">
-            <div class="hero-info">
-                <h1 class="hero-title">DANIELLE WASHINGTON</h1>
-                <div class="hero-badges">
-                    <span class="badge">Technical Storyteller</span>
-                    <span class="badge">Developer Experience</span>
-                    <span class="badge">Documentation Strategy</span>
-                </div>
-                <p class="hero-description">
-                    I empower developers to ship faster and feel more confident with complex platforms. 
-                    My work lives where documentation, developer experience, and product education converge.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">
-                        <i class="fas fa-play"></i> Learn More
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-info-circle"></i> Get In Touch
-                    </a>
-                </div>
-                <div class="visitor-counter">
-                    <i class="fas fa-users"></i>
-                    <span id="visitorCount">Loading...</span>
-                    <span>visitors</span>
-                </div>
+            <div class="hero-stamp">NYC · OPEN TO OPPORTUNITIES</div>
+            <h1 class="hero-name">
+                <span class="crown">♛ ♛ ♛</span>
+                DANIELLE<br>WASHINGTON
+            </h1>
+            <div class="hero-identities">
+                <span class="hero-identity hero-identity--filled">TECHNICAL STORYTELLER</span>
+                <span class="hero-identity">DEVELOPER EXPERIENCE</span>
+                <span class="hero-identity">DOCUMENTATION STRATEGY</span>
             </div>
-        </div>
-        <div class="hero-fade"></div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about-section" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="lead">
-                        I built a career across technology, education, entrepreneurship, and luxury retail centered on <em>translation</em>: 
-                        turning complex systems, products, and ideas into experiences people can understand and trust.
-                    </p>
-                    <p>
-                        I specialize in <strong>narrative-driven systems design</strong> — from developer platforms to consumer brands — 
-                        where storytelling is used to drive adoption, learning, and decision-making. I care about what developers 
-                        are trying to do, where they get <em>stuck</em>, and how documentation can remove friction at every step.
-                    </p>
-                    <p>
-                        I've repeatedly operated at the boundary between technical depth and human experience: teaching, documenting, 
-                        selling, founding, and partnering. I bring <strong>founder-level ownership</strong>, product thinking, and 
-                        narrative strategy into technical documentation and developer education.
-                    </p>
-                    
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number">11+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Documentation Projects</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">5+</div>
-                            <div class="stat-label">Major Platforms</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-details">
-                        <h3>Contact Details</h3>
-                        <p>
-                            <i class="fas fa-user"></i> Danielle Washington<br>
-                            <i class="fas fa-map-marker-alt"></i> Philadelphia Metro Area<br>
-                            <i class="fas fa-plane"></i> <em>Open to relocation</em><br>
-                            <i class="fas fa-envelope"></i> <a href="mailto:shakara.washington02@gmail.com">shakara.washington02@gmail.com</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="section experience-section" id="experience">
-        <div class="container">
-            <h2 class="section-title">Career Journey</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item" data-year="2025">
-                    <div class="timeline-content">
-                        <h3>Technical Documentation Writer</h3>
-                        <h4>Weaviate</h4>
-                        <p class="period">January 2025 – October 2025 | Remote</p>
-                        <ul class="highlights">
-                            <li>Drove documentation strategy and developer experience for Weaviate's open-source vector database</li>
-                            <li>Owned end-to-end deployment documentation strategy, improving time-to-first-deployment</li>
-                            <li>Authored high-impact content on Day 0 to Day 2 operations, horizontal scaling, and latency optimization</li>
-                            <li>Reduced deployment friction for EKS users by collaborating on the EKS Configurator tool</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">EKS</span>
-                            <span class="tech-tag">Vector DB</span>
-                            <span class="tech-tag">Developer Experience</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2024">
-                    <div class="timeline-content">
-                        <h3>Web3 Information Developer</h3>
-                        <h4>Gaia (formerly GaiaNet)</h4>
-                        <p class="period">Remote, Contract</p>
-                        <ul class="highlights">
-                            <li>Delivered comprehensive technical documentation for Web3 and AI development platform</li>
-                            <li>Produced API documentation, integration guides, and tutorials supporting user adoption</li>
-                            <li>Maintained consistency through style guides, templates, and review processes</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Web3</span>
-                            <span class="tech-tag">API Docs</span>
-                            <span class="tech-tag">Developer Onboarding</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-year="2022">
-                    <div class="timeline-content">
-                        <h3>Cloud Platform Information Developer, Documentation Tech Lead</h3>
-                        <h4>Hewlett Packard Enterprise (HPE)</h4>
-                        <p class="period">March 2022 – January 2025 | Remote</p>
-                        <ul class="highlights">
-                            <li>Led documentation strategy for HPE GreenLake Cloud Platform, supporting multiple business units</li>
-                            <li>Architected and implemented developer portals using Redocly, Backstage, and Just the Docs</li>
-                            <li>Eliminated documentation technical debt through automated link checking in GitHub Actions</li>
-                            <li>Led cross-functional alignment sessions with platform developers and GitOps teams</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Redocly</span>
-                            <span class="tech-tag">Backstage</span>
-                            <span class="tech-tag">GitHub Actions</span>
-                            <span class="tech-tag">Hybrid Cloud</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-year="2021">
-                    <div class="timeline-content">
-                        <h3>API Technical Writer</h3>
-                        <h4>Sarithm Inc. (HPE Contract)</h4>
-                        <p class="period">August 2021 – February 2022 | Remote</p>
-                        <ul class="highlights">
-                            <li>Partnered with Scrum teams to document GreenLake Cloud Platform features and API functionality</li>
-                            <li>Created and maintained API reference content, user guides, and release notes</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">API Documentation</span>
-                            <span class="tech-tag">Agile</span>
-                            <span class="tech-tag">Cloud Platform</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Earlier Experience Separator -->
-            <div class="timeline-separator">
-                <h3 class="separator-title">Earlier Experience</h3>
-                <p class="separator-subtitle">Founding, Partnerships, and Education</p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item" data-year="2017">
-                    <div class="timeline-content">
-                        <h3>Founder & Operator</h3>
-                        <h4>Amor Mas</h4>
-                        <p class="period">2017 – 2021</p>
-                        <ul class="highlights">
-                            <li>Founded and operated a DTC brand built around narrative design, where each product line was anchored to destination-based stories and long-form content</li>
-                            <li>Designed and executed full brand strategy: product concept, narrative architecture, packaging voice, blog editorial calendar, and customer experience</li>
-                            <li>Wrote and published destination essays connecting sensory design to cultural and emotional storytelling, strengthening brand differentiation and customer loyalty</li>
-                            <li>Managed end-to-end operations: sourcing, manufacturing coordination, pricing, marketing, fulfillment, and customer communication</li>
-                            <li>Developed early product-market fit through narrative-driven branding rather than paid acquisition</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Founder Mindset</span>
-                            <span class="tech-tag">Product Storytelling</span>
-                            <span class="tech-tag">Brand Systems</span>
-                            <span class="tech-tag">Narrative Strategy</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-year="2016">
-                    <div class="timeline-content">
-                        <h3>Auxiliar de Conversaccion/English Language Teacher</h3>
-                        <h4>Ministry of Education, Spain</h4>
-                        <p class="period">2016 – 2017</p>
-                        <ul class="highlights">
-                            <li>Designed and delivered structured lesson plans and learning activities for children across multiple age groups in a multilingual environment</li>
-                            <li>Adapted curriculum to diverse learning styles, cultural contexts, and developmental stages</li>
-                            <li>Built foundational skills in pedagogy, instructional design, and learner-centric communication</li>
-                            <li>Developed early expertise in explaining complex concepts simply and sequencing knowledge for retention</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Pedagogy</span>
-                            <span class="tech-tag">Instructional Design</span>
-                            <span class="tech-tag">Learner Empathy</span>
-                            <span class="tech-tag">Communication Architecture</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-year="2014">
-                    <div class="timeline-content">
-                        <h3>Sales & Marketing</h3>
-                        <h4>Links of London</h4>
-                        <p class="period">2014 – 2016</p>
-                        <ul class="highlights">
-                            <li>Led brand partnerships and in-store marketing strategy for an independent luxury jewelry company inside a flagship department store</li>
-                            <li>Negotiated cross-brand collaborations with global beauty and luxury brands (SpaceNK, Jo Malone) to drive co-branded awareness and foot traffic</li>
-                            <li>Worked directly with fashion stylists to place products on models for in-store events, integrating merchandising with experiential marketing</li>
-                            <li>Designed and executed partnership campaigns that blended retail, events, and visual storytelling</li>
-                            <li>Operated at the intersection of sales, marketing, and partnerships, influencing both revenue and brand positioning</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Partnerships</span>
-                            <span class="tech-tag">Negotiation</span>
-                            <span class="tech-tag">Cross-Functional Influence</span>
-                            <span class="tech-tag">Executive Communication</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section projects-section" id="projects">
-        <div class="container-fluid">
-            <h2 class="section-title">Featured Projects</h2>
-            
-            <!-- Projects Row 1: Technical Projects -->
-            <div class="projects-row">
-                <h3 class="row-title">Technical Projects & Developer Experience</h3>
-                <div class="projects-slider" id="techProjects">
-
-                    <div class="project-card project-card--featured" data-category="DevTools">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
-                                <i class="fas fa-file-alt fa-3x"></i>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>doc-audit</h4>
-                            <p class="project-status">Live</p>
-                            <p class="project-description">
-                                Interactive documentation analysis tool that demonstrates the difference between
-                                docs that inform and docs that route. Includes a live decision tree and agent-readability
-                                audit — checking whether docs hold up when the reader cannot ask questions.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Next.js</span>
-                                <span class="tag">React</span>
-                                <span class="tag">Developer Experience</span>
-                                <span class="tag">Documentation</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://doc-audit.clouddani.com" target="_blank" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i> View Tool
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="AI">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                                <i class="fas fa-robot fa-3x"></i>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>CloudDani Concierge</h4>
-                            <p class="project-status">In Progress</p>
-                            <p class="project-description">
-                                AI-powered interactive résumé using RAG architecture with OpenAI GPT-4o and vector database.
-                                Positions documentation as an intelligent, conversational layer.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">OpenAI GPT-4o</span>
-                                <span class="tag">Pinecone</span>
-                                <span class="tag">RAG</span>
-                                <span class="tag">Python</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="DevTools">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                                <i class="fas fa-tools fa-3x"></i>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>EKS Configurator</h4>
-                            <p class="project-status">Live Demo Available</p>
-                            <p class="project-description">
-                                Web-based configurator that automates EKS cluster configuration for Weaviate deployments.
-                                Generates validated YAML through a guided UI.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Kubernetes</span>
-                                <span class="tag">EKS</span>
-                                <span class="tag">Streamlit</span>
-                                <span class="tag">Python</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://k8s-config-nzfndvmnwxppa6zegwocxm.streamlit.app/" target="_blank" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i> View Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="Cloud">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                                <i class="fas fa-cloud fa-3x"></i>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>CloudDani Portfolio</h4>
-                            <p class="project-status">Production</p>
-                            <p class="project-description">
-                                Full-stack cloud resume built on AWS using serverless architecture. Treats the site as a
-                                documentation experience with clear navigation and case-study project write-ups.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">AWS S3</span>
-                                <span class="tag">CloudFront</span>
-                                <span class="tag">Lambda</span>
-                                <span class="tag">DynamoDB</span>
-                                <span class="tag">GitHub Actions</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Projects Row 2: Speaking & Community -->
-            <div class="projects-row">
-                <h3 class="row-title">Speaking & Community Engagement</h3>
-                <div class="projects-slider" id="speakingProjects">
-                    
-                    <div class="project-card" data-category="Speaking">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                                <i class="fas fa-microphone fa-3x"></i>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>Technical Storytelling Webinar</h4>
-                            <p class="project-status">3percentclub</p>
-                            <p class="project-description">
-                                Guest speaker delivering a webinar on technical writing career paths and creating compelling 
-                                narratives around technical products and platforms.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Public Speaking</span>
-                                <span class="tag">Technical Writing</span>
-                                <span class="tag">Career Development</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="Community">
-                        <div class="project-image">
-                            <div class="project-placeholder" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
-                                <i class="fas fa-blog fa-3x"></i>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>Technical Blog</h4>
-                            <p class="project-status">Active</p>
-                            <p class="project-description">
-                                Sharing insights on documentation strategy, developer experience, and cloud engineering 
-                                through written content and tutorials.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Writing</span>
-                                <span class="tag">Developer Education</span>
-                                <span class="tag">Best Practices</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://blog.clouddani.com" target="_blank" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i> Visit Blog
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact-section" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2 class="contact-title">Let's Collaborate!</h2>
-                <p class="contact-lead">
-                    If you believe that documentation should be treated as a core part of the developer experience, 
-                    I would love to talk about how I can help.
-                </p>
-                <a href="mailto:shakara.washington02@gmail.com" class="btn btn-contact">
-                    <i class="fas fa-envelope"></i> Start a Conversation
+            <p class="hero-tagline">
+                I empower developers to ship faster and feel more confident
+                with complex platforms. My work lives where documentation,
+                developer experience, and product education converge.
+            </p>
+            <div class="hero-actions">
+                <a href="#experience" class="btn btn--primary">
+                    <i class="fas fa-arrow-down"></i> See the Journey
                 </a>
-                
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/dwashington-clouddani" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://www.github.com/DanielleWashington" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://blog.clouddani.com" target="_blank" class="social-link">
-                        <i class="fa fa-globe"></i>
-                        <span>Blog</span>
-                    </a>
-                </div>
+                <a href="#contact" class="btn btn--secondary">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+        <div class="hero-color-block"></div>
+        <div class="hero-dateline">
+            <div class="dateline-stat">
+                <strong>11+</strong>
+                <span>YEARS EXPERIENCE</span>
+            </div>
+            <div class="dateline-stat">
+                <strong>50+</strong>
+                <span>DOCUMENTATION PROJECTS</span>
+            </div>
+            <div class="dateline-stat">
+                <strong>5+</strong>
+                <span>MAJOR PLATFORMS</span>
+            </div>
+            <div class="dateline-stat" style="margin-left:auto;">
+                <i class="fas fa-eye" style="color:var(--red)"></i>
+                <strong id="visitor-count">—</strong>
+                <span>VISITORS</span>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-text">
-                    © 2024 Cloud Dani. Built with ☁️ on AWS.
-                </p>
-                <p class="footer-subtext">
-                    Where documentation meets storytelling, and the cloud meets creativity.
-                </p>
+    <!-- MARQUEE -->
+    <div class="marquee-strip">
+        <div class="marquee-inner">
+            <span>TECHNICAL STORYTELLER</span><span class="dot">✦</span>
+            <span>DEVELOPER EXPERIENCE ADVOCATE</span><span class="dot">✦</span>
+            <span>ABSTRACT ARTIST</span><span class="dot">✦</span>
+            <span>DOCUMENTATION STRATEGY</span><span class="dot">✦</span>
+            <span>LEGO LOVER</span><span class="dot">✦</span>
+            <span>API DOCUMENTATION</span><span class="dot">✦</span>
+            <span>RAY OF SUNSHINE (or so they say)</span><span class="dot">✦</span>
+            <span>CLOUD ENGINEERING</span><span class="dot">✦</span>
+            <span>REAL HOUSEWIVES HISTORIAN</span><span class="dot">✦</span>
+            <span>VECTOR DATABASE DOCS</span><span class="dot">✦</span>
+            <span>CHEESESTEAK CONNOISSEUR</span><span class="dot">✦</span>
+            <span>KUBERNETES · EKS</span><span class="dot">✦</span>
+            <span>FOUNDER MINDSET</span><span class="dot">✦</span>
+            <!-- repeated for seamless loop -->
+            <span>TECHNICAL STORYTELLER</span><span class="dot">✦</span>
+            <span>DEVELOPER EXPERIENCE ADVOCATE</span><span class="dot">✦</span>
+            <span>ABSTRACT ARTIST</span><span class="dot">✦</span>
+            <span>DOCUMENTATION STRATEGY</span><span class="dot">✦</span>
+            <span>LEGO LOVER</span><span class="dot">✦</span>
+            <span>API DOCUMENTATION</span><span class="dot">✦</span>
+            <span>RAY OF SUNSHINE (or so they say)</span><span class="dot">✦</span>
+            <span>CLOUD ENGINEERING</span><span class="dot">✦</span>
+            <span>REAL HOUSEWIVES HISTORIAN</span><span class="dot">✦</span>
+            <span>VECTOR DATABASE DOCS</span><span class="dot">✦</span>
+            <span>CHEESESTEAK CONNOISSEUR</span><span class="dot">✦</span>
+            <span>KUBERNETES · EKS</span><span class="dot">✦</span>
+            <span>FOUNDER MINDSET</span><span class="dot">✦</span>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-sidebar">
+            <div class="section-label">ABOUT</div>
+            <div class="about-stats">
+                <div class="stat">
+                    <div class="stat-number">11+</div>
+                    <div class="stat-label">YEARS IN THE FIELD</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">DOCUMENTATION PROJECTS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">MAJOR PLATFORMS</div>
+                </div>
             </div>
         </div>
+        <div class="about-body">
+            <h2 class="about-lead">
+                I turn <span class="highlight-yellow">complex systems</span> into
+                experiences people can
+                <span class="highlight-red">understand</span> and trust.
+            </h2>
+            <p>
+                My work sits at the intersection of documentation strategy, developer experience,
+                and platform engineering. I've spent over a decade translating technical reality
+                into language that moves people — from cloud infrastructure to vector databases
+                to Web3 platforms.
+            </p>
+            <p>
+                What I bring isn't just writing. It's narrative architecture — the ability to
+                see a system, understand its users, and build a documentation experience that
+                makes complexity feel like clarity.
+            </p>
+            <div class="fashion-note">
+                <div class="fashion-note-label">THE EDIT</div>
+                <div class="fashion-note-quote">
+                    "Elegance is refusal."
+                </div>
+                <div class="fashion-note-sub">
+                    Vreeland built a career on refusal. I apply it to every document I ship.
+                    The discipline isn't knowing what to add — it's knowing what has earned its place.
+                    <br><br>
+                    <em>Taste is subtraction.</em> Clarity is what remains when the unnecessary has been cut.
+                </div>
+            </div>
+            <p>
+                I bring founder-level ownership to every engagement — product thinking, user empathy,
+                and a bias toward systems that scale. From GreenLake to Weaviate, from Spain to
+                New York City, the throughline is translation.
+            </p>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE — QUILT GRID -->
+    <section class="experience" id="experience">
+        <div class="experience-header">
+            <h2>CAREER JOURNEY</h2>
+            <span class="era-count">8 CHAPTERS · 2014–PRESENT</span>
+        </div>
+
+        <div class="quilt-grid">
+
+            <!-- Panel 1: Links of London — cream -->
+            <div class="quilt-panel">
+                <div class="quilt-year">2014</div>
+                <div class="quilt-year-range">2014 – 2016</div>
+                <div class="quilt-role">Sales & Marketing</div>
+                <div class="quilt-company">LINKS OF LONDON</div>
+                <ul class="quilt-highlights">
+                    <li>Led brand partnerships and in-store marketing for luxury jewelry inside a flagship department store</li>
+                    <li>Negotiated cross-brand collaborations with SpaceNK, Jo Malone</li>
+                    <li>Designed campaigns blending retail, events, and visual storytelling</li>
+                </ul>
+                <div class="quilt-tags">
+                    <span class="quilt-tag">Partnerships</span>
+                    <span class="quilt-tag">Negotiation</span>
+                    <span class="quilt-tag">Narrative Strategy</span>
+                </div>
+            </div>
+
+            <!-- Panel 2: Spain — yellow accent -->
+            <div class="quilt-panel quilt-panel--yellow">
+                <div class="quilt-year">2016</div>
+                <div class="quilt-year-range" style="color:var(--ink);">2016 – 2017</div>
+                <div class="quilt-role" style="color:var(--ink);">English Language Teacher</div>
+                <div class="quilt-company" style="color:var(--red-deep);">MINISTRY OF EDUCATION, SPAIN</div>
+                <ul class="quilt-highlights">
+                    <li style="color:var(--ink-soft);">Designed lesson plans for multilingual classrooms</li>
+                    <li style="color:var(--ink-soft);">Adapted curriculum to diverse learning styles and developmental stages</li>
+                    <li style="color:var(--ink-soft);">Built foundations in instructional design and learner-centric communication</li>
+                </ul>
+                <div class="quilt-tags">
+                    <span class="quilt-tag">Pedagogy</span>
+                    <span class="quilt-tag">Instructional Design</span>
+                    <span class="quilt-tag">Learner Empathy</span>
+                </div>
+            </div>
+
+            <!-- Panel 3: Amor Mas — red accent -->
+            <div class="quilt-panel quilt-panel--red">
+                <div class="quilt-year">2017</div>
+                <div class="quilt-year-range" style="color:rgba(255,255,255,0.6);">2017 – 2021</div>
+                <div class="quilt-role">Founder & Operator</div>
+                <div class="quilt-company">AMOR MAS</div>
+                <ul class="quilt-highlights">
+                    <li>Founded DTC brand anchored in narrative design and destination storytelling</li>
+                    <li>Executed full brand strategy: narrative architecture, packaging voice, editorial calendar</li>
+                    <li>Developed product-market fit through storytelling rather than paid acquisition</li>
+                </ul>
+                <div class="quilt-tags">
+                    <span class="quilt-tag">Founder Mindset</span>
+                    <span class="quilt-tag">Brand Systems</span>
+                    <span class="quilt-tag">Product Storytelling</span>
+                </div>
+            </div>
+
+            <!-- Panel 4: Sarithm — cream -->
+            <div class="quilt-panel">
+                <div class="quilt-year">2021</div>
+                <div class="quilt-year-range">Aug 2021 – Feb 2022</div>
+                <div class="quilt-role">API Technical Writer</div>
+                <div class="quilt-company">SARITHM INC. (HPE CONTRACT)</div>
+                <ul class="quilt-highlights">
+                    <li>Documented GreenLake Cloud Platform features with Scrum teams</li>
+                    <li>Created and maintained API reference content, user guides, release notes</li>
+                </ul>
+                <div class="quilt-tags">
+                    <span class="quilt-tag">API Documentation</span>
+                    <span class="quilt-tag">Agile</span>
+                    <span class="quilt-tag">Cloud Platform</span>
+                </div>
+            </div>
+
+            <!-- Panel 5: HPE — blue accent -->
+            <div class="quilt-panel quilt-panel--blue">
+                <div class="quilt-year">2022</div>
+                <div class="quilt-year-range" style="color:rgba(255,255,255,0.6);">Mar 2022 – Jan 2025</div>
+                <div class="quilt-role">Cloud Platform Info Dev</div>
+                <div class="quilt-company">HEWLETT PACKARD ENTERPRISE</div>
+                <ul class="quilt-highlights">
+                    <li>Led documentation strategy for HPE GreenLake Cloud Platform</li>
+                    <li>Architected developer portals using Redocly, Backstage, Just the Docs</li>
+                    <li>Eliminated technical debt through automated link checking in GitHub Actions</li>
+                </ul>
+                <div class="quilt-tags">
+                    <span class="quilt-tag">AWS</span>
+                    <span class="quilt-tag">Redocly</span>
+                    <span class="quilt-tag">Hybrid Cloud</span>
+                </div>
+            </div>
+
+            <!-- Panel 6: Gaia — pink -->
+            <div class="quilt-panel quilt-panel--pink">
+                <div class="quilt-year">2024</div>
+                <div class="quilt-year-range">Remote, Contract</div>
+                <div class="quilt-role">Web3 Information Developer</div>
+                <div class="quilt-company">GAIA (FORMERLY GAIANET)</div>
+                <ul class="quilt-highlights">
+                    <li>Delivered documentation for Web3 and AI development platform</li>
+                    <li>Produced API docs, integration guides, and tutorials for user adoption</li>
+                </ul>
+                <div class="quilt-tags">
+                    <span class="quilt-tag">Web3</span>
+                    <span class="quilt-tag">API Docs</span>
+                    <span class="quilt-tag">Developer Onboarding</span>
+                </div>
+            </div>
+
+            <!-- Panel 7: Weaviate — full width -->
+            <div class="quilt-panel" style="grid-column: 1 / -1; border-right: none; background: var(--cream-warm);">
+                <div style="display:grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start;">
+                    <div>
+                        <div class="quilt-year" style="font-size:5rem;">2025</div>
+                        <div class="quilt-year-range">Jan 2025 – Oct 2025</div>
+                    </div>
+                    <div>
+                        <div class="quilt-role" style="font-size:1.4rem;">Technical Documentation Writer</div>
+                        <div class="quilt-company">WEAVIATE</div>
+                        <ul class="quilt-highlights" style="columns: 2; gap: 24px;">
+                            <li>Drove documentation strategy for Weaviate's open-source vector database</li>
+                            <li>Owned end-to-end deployment documentation, improving time-to-first-deployment</li>
+                            <li>Authored content on Day 0–2 operations, horizontal scaling, and latency optimization</li>
+                            <li>Reduced EKS deployment friction by collaborating on the EKS Configurator tool</li>
+                        </ul>
+                        <div class="quilt-tags">
+                            <span class="quilt-tag">Kubernetes</span>
+                            <span class="quilt-tag">EKS</span>
+                            <span class="quilt-tag">Vector DB</span>
+                            <span class="quilt-tag">Developer Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 8: 10aLabs — full width, ink featured panel -->
+            <div class="quilt-panel" style="grid-column: 1 / -1; border-right: none; border-bottom: none; background: var(--ink);">
+                <div style="display:grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start;">
+                    <div>
+                        <div class="quilt-year" style="font-size:5rem; color: var(--yellow);">2026</div>
+                        <div class="quilt-year-range" style="color: rgba(255,255,255,0.5);">Present</div>
+                        <div style="margin-top: 24px; display: inline-block; background: var(--yellow); color: var(--ink); font-family: var(--font-stamp); font-size: 0.7rem; letter-spacing: 0.2em; padding: 5px 12px;">NOW</div>
+                    </div>
+                    <div>
+                        <div class="quilt-role" style="font-size:1.4rem; color: var(--white);">Technical Writer</div>
+                        <div class="quilt-company" style="color: var(--yellow);">10ALABS</div>
+                        <ul class="quilt-highlights" style="columns: 2; gap: 24px;">
+                            <li style="color: rgba(255,255,255,0.8);">Writing and structuring technical content on AI and information retrieval for a fast-moving product team, translating complex engineering concepts into clear, usable documentation</li>
+                            <li style="color: rgba(255,255,255,0.8);">Identified gaps in how content served its audience and restructured materials from the ground up, improving clarity and usability without waiting to be directed</li>
+                            <li style="color: rgba(255,255,255,0.8);">Developed modular documentation components: playbooks, guides, agent specs, and reference materials designed for reuse and consistent delivery across teams</li>
+                        </ul>
+                        <div class="quilt-tags" style="margin-top: 24px;">
+                            <span class="quilt-tag" style="border-color: var(--yellow); color: var(--yellow);">AI Documentation</span>
+                            <span class="quilt-tag" style="border-color: var(--yellow); color: var(--yellow);">Information Retrieval</span>
+                            <span class="quilt-tag" style="border-color: var(--yellow); color: var(--yellow);">Modular Docs</span>
+                            <span class="quilt-tag" style="border-color: var(--yellow); color: var(--yellow);">Agent Specs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+        <div class="projects-header">
+            <h2>FEATURED WORK</h2>
+        </div>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-card-header project-card-header--green" role="img" aria-label="doc-audit project icon">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="project-status-badge">LIVE</span>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-title">doc-audit</div>
+                    <p class="project-desc">Interactive documentation analysis tool. Includes a live decision tree and agent-readability audit — checking whether docs hold up when the reader cannot ask follow-up questions.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Next.js</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Developer Experience</span>
+                    </div>
+                    <a href="https://doc-audit.clouddani.com" class="project-link" target="_blank" rel="noopener">
+                        View Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-header project-card-header--purple" role="img" aria-label="CloudDani Concierge project icon">
+                    <i class="fas fa-robot"></i>
+                    <span class="project-status-badge">LIVE</span>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-title">CloudDani Concierge</div>
+                    <p class="project-desc">AI-powered interactive résumé built with Claude Sonnet 4.6 and prompt caching. Visitors chat with an AI that knows Danielle's full career, projects, and documentation philosophy — powered by Anthropic's API.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Claude Sonnet 4.6</span>
+                        <span class="project-tag">Anthropic SDK</span>
+                        <span class="project-tag">Prompt Caching</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-header project-card-header--coral" role="img" aria-label="EKS Configurator project icon">
+                    <i class="fas fa-tools"></i>
+                    <span class="project-status-badge">LIVE DEMO</span>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-title">EKS Configurator</div>
+                    <p class="project-desc">Web-based configurator that automates EKS cluster configuration for Weaviate deployments. Generates validated YAML through a guided UI — documentation as interactive tooling.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Kubernetes</span>
+                        <span class="project-tag">Streamlit</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <a href="https://k8s-config-nzfndvmnwxppa6zegwocxm.streamlit.app/" target="_blank" rel="noopener" class="project-link">View Demo <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-header project-card-header--teal" role="img" aria-label="CloudDani Portfolio project icon">
+                    <i class="fas fa-cloud"></i>
+                    <span class="project-status-badge">PRODUCTION</span>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-title">CloudDani Portfolio</div>
+                    <p class="project-desc">Full-stack serverless portfolio on AWS — S3, CloudFront, Lambda, DynamoDB, GitHub Actions CI/CD. The site itself is a documentation experience.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">AWS</span>
+                        <span class="project-tag">Lambda</span>
+                        <span class="project-tag">GitHub Actions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quantum Leap — full width featured app -->
+            <div class="project-card" style="grid-column: 1 / -1; border-right: none; flex-direction: row;">
+                <div class="project-card-header project-card-header--pink" role="img" aria-label="Quantum Leap project icon" style="width: 320px; flex-shrink: 0; border-right: var(--border-thick); border-bottom: none; height: auto; flex-direction: column; gap: 12px; padding: 40px 0;">
+                    <i class="fas fa-rocket" style="font-size: 3rem;"></i>
+                    <span class="project-status-badge" style="position: static; align-self: center;">LIVE</span>
+                </div>
+                <div class="project-card-body" style="padding: 40px 48px;">
+                    <div class="project-title" style="font-size: 1.6rem;">Quantum Leap</div>
+                    <p class="project-desc" style="max-width: 680px;">A productivity app built for the way creative, multidisciplinary minds actually work — tracking goals, tasks, and momentum across multiple contexts without losing the thread. Built and shipped independently.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Productivity</span>
+                        <span class="project-tag">App Development</span>
+                        <span class="project-tag">UX Design</span>
+                        <span class="project-tag">Independent Build</span>
+                    </div>
+                    <a href="https://productivity-app-rose-one.vercel.app/" target="_blank" rel="noopener" class="project-link" style="margin-top: 8px;">
+                        Launch App <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-main">
+            <h2>LET'S<br><em>BUILD</em><br>SOMETHING.</h2>
+            <p>
+                If you're building a platform, a product, or a developer experience
+                and need someone who treats documentation as a first-class design
+                concern — let's talk.
+            </p>
+            <a href="mailto:shakara.washington02@gmail.com" class="btn btn--primary">
+                <i class="fas fa-envelope"></i> Send a Message
+            </a>
+        </div>
+        <div class="contact-sidebar">
+            <div>
+                <div class="contact-sidebar-label">EMAIL</div>
+                <a href="mailto:shakara.washington02@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> shakara.washington02@gmail.com
+                </a>
+            </div>
+            <div>
+                <div class="contact-sidebar-label">LINKEDIN</div>
+                <a href="https://www.linkedin.com/in/dwashington-clouddani" class="contact-link" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin"></i> dwashington-clouddani
+                </a>
+            </div>
+            <div>
+                <div class="contact-sidebar-label">GITHUB</div>
+                <a href="https://www.github.com/DanielleWashington" class="contact-link" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> DanielleWashington
+                </a>
+            </div>
+            <div>
+                <div class="contact-sidebar-label">BLOG</div>
+                <a href="https://blog.clouddani.com" class="contact-link" target="_blank" rel="noopener">
+                    <i class="fas fa-globe"></i> blog.clouddani.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">CLOUD<span>DANI</span></div>
+        <div class="footer-copy">© 2026 DANIELLE WASHINGTON</div>
+        <div class="footer-tagline">Where documentation meets storytelling, and the cloud meets creativity.</div>
     </footer>
 
     <!-- JavaScript -->
-    <script src="js/intro-animation.js"></script>
-    <script src="js/netflix-scripts.js"></script>
-    <script src="js/chatbot.js"></script>
+    <script src="js/intro-animation.js" defer></script>
+    <script src="js/netflix-scripts.js" defer></script>
+    <script src="js/chatbot.js" defer></script>
 
 </body>
 </html>
