@@ -101,7 +101,19 @@
             <li><a href="#projects">Work</a></li>
             <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
         </ul>
+        <!-- Hamburger — mobile only -->
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- Mobile drawer -->
+    <div class="nav-mobile-drawer" id="navMobileDrawer" aria-hidden="true">
+        <a href="#about" class="nav-drawer-link">About</a>
+        <a href="#experience" class="nav-drawer-link">Journey</a>
+        <a href="#projects" class="nav-drawer-link">Work</a>
+        <a href="#contact" class="nav-cta nav-drawer-link">Let's Talk</a>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -563,6 +575,40 @@
     <script src="js/intro-animation.js" defer></script>
     <script src="js/netflix-scripts.js" defer></script>
     <script src="js/chatbot.js" defer></script>
+
+    <!-- Mobile nav hamburger -->
+    <script>
+    (function() {
+        function initHamburger() {
+            const btn = document.getElementById('navHamburger');
+            const drawer = document.getElementById('navMobileDrawer');
+            if (!btn || !drawer) return;
+
+            btn.addEventListener('click', function() {
+                const open = drawer.classList.toggle('open');
+                btn.classList.toggle('open', open);
+                btn.setAttribute('aria-expanded', open);
+                drawer.setAttribute('aria-hidden', !open);
+            });
+
+            // Close drawer on link click
+            drawer.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    drawer.classList.remove('open');
+                    btn.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    drawer.setAttribute('aria-hidden', 'true');
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initHamburger);
+        } else {
+            initHamburger();
+        }
+    })();
+    </script>
 
 </body>
 </html>

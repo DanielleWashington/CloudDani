@@ -1,19 +1,17 @@
-/* ============================================
-   Netflix-Style Intro Animation for CloudDani
-   ============================================ */
+/* ═══════════════════════════════════════════════
+   EDITORIAL INTRO ANIMATION — CloudDani
+   Basquiat × Mondrian — cream, ink, yellow, red
+   ═══════════════════════════════════════════════ */
 
 .intro-screen {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
+    inset: 0;
     z-index: 10000;
+    background: #F4EFE3; /* --cream, matches site body */
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
+    overflow: hidden;
     transition: opacity 0.5s ease-out;
 }
 
@@ -26,255 +24,200 @@
     display: none;
 }
 
-/* Main intro logo container */
-.intro-logo {
+/* ── Horizontal ink borders slide in from edges ── */
+.intro-border-top,
+.intro-border-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: #1A1208;
+    z-index: 1;
+}
+
+.intro-border-top {
+    top: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: borderSlide 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.intro-border-bottom {
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    animation: borderSlide 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes borderSlide {
+    to { transform: scaleX(1); }
+}
+
+/* ── Yellow Mondrian color block — wipes in from left ── */
+.intro-color-block {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    background: #F5C000;
+    border-right: 6px solid #1A1208;
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: blockReveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+    z-index: 1;
+}
+
+.intro-color-block-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    background: #D42020;
+    border-left: 6px solid #1A1208;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    animation: blockReveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+    z-index: 1;
+}
+
+@keyframes blockReveal {
+    to { transform: scaleY(1); }
+}
+
+/* ── Center content ── */
+.intro-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
     position: relative;
-    font-family: 'Bebas Neue', Impact, sans-serif;
-    font-size: clamp(4rem, 15vw, 12rem);
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: #E50914;
-    text-shadow: 
-        0 0 20px rgba(229, 9, 20, 0.8),
-        0 0 40px rgba(229, 9, 20, 0.6),
-        0 0 60px rgba(229, 9, 20, 0.4);
-    animation: introReveal 3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-    transform-origin: center;
+    z-index: 2;
+    text-align: center;
+    padding: 0 60px;
 }
 
-/* Main reveal animation */
-@keyframes introReveal {
-    0% {
-        opacity: 0;
-        transform: scale(0.3);
-        letter-spacing: -0.2em;
-    }
-    15% {
-        opacity: 1;
-        transform: scale(1.1);
-        letter-spacing: 0.15em;
-    }
-    30% {
-        transform: scale(1);
-        letter-spacing: 0.1em;
-    }
-    70% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Animated glow pulse */
-.intro-logo::before {
-    content: 'CLOUDDANI';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: transparent;
-    text-shadow: 
-        0 0 30px rgba(229, 9, 20, 0.6),
-        0 0 60px rgba(229, 9, 20, 0.4),
-        0 0 90px rgba(229, 9, 20, 0.2);
-    animation: glowPulse 2s ease-in-out infinite;
-    z-index: -1;
-}
-
-@keyframes glowPulse {
-    0%, 100% {
-        opacity: 0.5;
-        text-shadow: 
-            0 0 20px rgba(229, 9, 20, 0.6),
-            0 0 40px rgba(229, 9, 20, 0.4),
-            0 0 60px rgba(229, 9, 20, 0.2);
-    }
-    50% {
-        opacity: 1;
-        text-shadow: 
-            0 0 40px rgba(229, 9, 20, 0.8),
-            0 0 80px rgba(229, 9, 20, 0.6),
-            0 0 120px rgba(229, 9, 20, 0.4);
-    }
-}
-
-/* Animated background gradient */
-.intro-screen::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        ellipse at center,
-        rgba(229, 9, 20, 0.15) 0%,
-        rgba(0, 0, 0, 1) 70%
-    );
-    animation: backgroundPulse 3s ease-out;
-    z-index: -1;
-}
-
-@keyframes backgroundPulse {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Sound wave effect */
-.sound-waves {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200%;
-    height: 200%;
-    pointer-events: none;
-}
-
-.sound-wave {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid rgba(229, 9, 20, 0.3);
-    border-radius: 50%;
-    animation: soundWaveExpand 2s ease-out forwards;
-}
-
-.sound-wave:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.sound-wave:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.sound-wave:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-@keyframes soundWaveExpand {
-    0% {
-        width: 0;
-        height: 0;
-        opacity: 1;
-        border-width: 3px;
-    }
-    100% {
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        border-width: 1px;
-    }
-}
-
-/* Skip intro button */
-.skip-intro {
-    position: absolute;
-    bottom: 5rem;
-    right: 5rem;
-    padding: 0.8rem 1.5rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
+/* ── Pre-label — stamp style ── */
+.intro-prelabel {
+    font-family: 'Special Elite', cursive, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    color: #D42020;
     opacity: 0;
-    transition: all 0.3s ease;
-    animation: skipButtonFade 0.5s ease-out 1.5s forwards;
+    transform: translateY(6px);
+    animation: fadeUp 0.4s ease-out 0.55s both;
+    margin-bottom: 12px;
 }
 
-@keyframes skipButtonFade {
+/* ── Main name ── */
+.intro-name {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(4.5rem, 15vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    color: #1A1208;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+    position: relative;
+    display: inline-block;
+}
+
+/* Yellow underline mark — Basquiat stroke */
+.intro-name::after {
+    content: '';
+    display: block;
+    height: 6px;
+    background: #F5C000;
+    width: 0;
+    margin-top: 10px;
+    animation: lineGrow 0.4s ease-out 1.05s both;
+}
+
+@keyframes lineGrow {
+    to { width: 55%; }
+}
+
+/* ── Subtitle / tagline ── */
+.intro-subtitle {
+    font-family: 'Special Elite', cursive, monospace;
+    font-size: clamp(0.72rem, 2vw, 0.88rem);
+    letter-spacing: 0.28em;
+    color: #3D3220;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: fadeUp 0.4s ease-out 1.0s both;
+    margin-top: 20px;
+}
+
+/* ── Crown glyph ── */
+.intro-crown {
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+    color: #D42020;
+    opacity: 0;
+    animation: fadeUp 0.3s ease-out 0.85s both;
+    margin-bottom: 4px;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
+}
+
+/* ── Skip button ── */
+.skip-intro {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    padding: 8px 18px;
+    background: transparent;
+    border: 2px solid #1A1208;
+    color: #1A1208;
+    font-family: 'Special Elite', cursive;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeUp 0.3s ease-out 1.4s both;
+    transition: background 0.15s, color 0.15s;
+    z-index: 3;
 }
 
 .skip-intro:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1.05);
+    background: #1A1208;
+    color: #F4EFE3;
 }
 
-.skip-intro:active {
-    transform: scale(0.95);
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .intro-logo {
-        font-size: clamp(3rem, 12vw, 6rem);
-    }
-    
-    .skip-intro {
-        bottom: 3rem;
-        right: 3rem;
-        padding: 0.6rem 1.2rem;
-        font-size: 0.8rem;
-    }
-}
-
+/* ── Mobile ── */
 @media (max-width: 480px) {
-    .intro-logo {
-        font-size: clamp(2.5rem, 10vw, 4rem);
+    .intro-center {
+        padding: 0 32px;
     }
-    
+
+    .intro-name {
+        font-size: clamp(3.5rem, 18vw, 5.5rem);
+    }
+
     .skip-intro {
-        bottom: 2rem;
+        bottom: 20px;
         right: 50%;
         transform: translateX(50%);
     }
-    
+
     .skip-intro:hover {
-        transform: translateX(50%) scale(1.05);
+        transform: translateX(50%);
     }
-}
 
-/* Particle effects (optional enhancement) */
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.particle {
-    position: absolute;
-    background-color: rgba(229, 9, 20, 0.5);
-    border-radius: 50%;
-    animation: particleFloat 3s ease-out forwards;
-}
-
-@keyframes particleFloat {
-    0% {
-        opacity: 0;
-        transform: translateY(0) scale(0);
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-200px) scale(1);
+    .intro-color-block,
+    .intro-color-block-right {
+        width: 8px;
     }
 }

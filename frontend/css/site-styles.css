@@ -960,3 +960,383 @@ body {
     border-color: var(--red);
     transform: translate(-2px, -2px);
 }
+
+/* ═══════════════════════════════════════════════
+   HAMBURGER NAV — mobile only
+   ═══════════════════════════════════════════════ */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    margin-left: auto;
+    padding: 0 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    height: 100%;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 108px; /* promo bar + nav */
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    border-bottom: var(--border-thick);
+    z-index: 99;
+    flex-direction: column;
+}
+
+.nav-mobile-drawer.open { display: flex; }
+
+.nav-mobile-drawer a {
+    display: block;
+    padding: 18px 28px;
+    font-family: var(--font-stamp);
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: var(--border);
+    transition: background 0.15s;
+}
+
+.nav-mobile-drawer a:hover { background: var(--cream-warm); }
+.nav-mobile-drawer a.nav-cta {
+    background: var(--pink);
+    color: var(--white);
+    border-bottom: none;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — TABLET (≤ 1024px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr 280px;
+    }
+
+    .hero-content {
+        padding: 48px 40px 32px;
+    }
+
+    .hero-dateline {
+        padding: 16px 40px;
+        gap: 20px;
+    }
+
+    .about {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .about-body {
+        padding: 48px 40px;
+    }
+
+    .experience-header,
+    .projects-header {
+        padding: 40px 40px 0;
+    }
+
+    .quilt-panel {
+        padding: 28px;
+    }
+
+    .contact-main {
+        padding: 56px 40px;
+    }
+
+    .contact-main h2 {
+        font-size: 4rem;
+    }
+
+    .footer {
+        padding: 28px 40px;
+    }
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤ 768px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* Promo bar */
+    .promo-bar {
+        font-size: 0.75rem;
+        gap: 6px;
+        padding: 0 16px;
+    }
+
+    /* Nav */
+    .nav {
+        height: 52px;
+        top: 44px;
+    }
+
+    .nav-logo-block {
+        font-size: 1.3rem;
+        padding: 0 18px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-hamburger {
+        display: flex;
+    }
+
+    /* Hero — single column, no color block */
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        padding-top: 96px; /* 44px promo + 52px nav */
+        min-height: auto;
+    }
+
+    .hero-color-block {
+        display: none;
+    }
+
+    .hero-content {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 40px 24px 32px;
+    }
+
+    .hero-name {
+        font-size: clamp(3.8rem, 16vw, 6rem);
+        margin-bottom: 24px;
+    }
+
+    .hero-tagline {
+        font-size: 1.05rem;
+        margin-bottom: 32px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-dateline {
+        grid-column: 1;
+        grid-row: 2;
+        padding: 16px 24px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .dateline-stat[style] {
+        margin-left: 0 !important;
+    }
+
+    /* About — stacked */
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about-sidebar {
+        padding: 32px 24px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 24px;
+        border-right: none;
+        border-bottom: var(--border-thick);
+    }
+
+    .section-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 2.8rem;
+        flex: 0 0 auto;
+    }
+
+    .about-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .stat {
+        min-width: 100px;
+    }
+
+    .about-body {
+        padding: 36px 24px;
+    }
+
+    .about-lead {
+        font-size: 1.6rem;
+    }
+
+    .fashion-note {
+        margin: 32px 0;
+    }
+
+    /* Experience — 1 column */
+    .experience-header {
+        padding: 32px 24px 0;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .experience-header h2 {
+        font-size: 2.8rem;
+    }
+
+    .quilt-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quilt-panel {
+        border-right: none !important;
+        padding: 28px 24px;
+    }
+
+    .quilt-year {
+        font-size: 2.8rem;
+    }
+
+    /* Projects — 1 column */
+    .projects-header {
+        padding: 32px 24px 0;
+    }
+
+    .projects-header h2 {
+        font-size: 2.8rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        border-right: none !important;
+    }
+
+    .project-card-body {
+        padding: 24px;
+    }
+
+    /* Contact — stacked */
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-main {
+        padding: 40px 24px;
+        border-right: none;
+        border-bottom: var(--border-thick);
+    }
+
+    .contact-main h2 {
+        font-size: 3rem;
+        line-height: 1;
+    }
+
+    .contact-sidebar {
+        padding: 36px 24px;
+        gap: 20px;
+    }
+
+    /* Footer — stacked */
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 32px 24px;
+    }
+
+    .footer-tagline {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    /* Chatbot button — move up from bottom edge */
+    .concierge-btn,
+    .chat-button {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+    .promo-bar {
+        font-size: 0.7rem;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .hero-stamp {
+        font-size: 0.7rem;
+    }
+
+    .hero-name {
+        font-size: clamp(3rem, 18vw, 5rem);
+    }
+
+    .crown {
+        font-size: 1.1rem;
+    }
+
+    .hero-identities {
+        gap: 8px;
+    }
+
+    .hero-identity {
+        font-size: 0.72rem;
+        padding: 5px 10px;
+    }
+
+    .about-lead {
+        font-size: 1.35rem;
+    }
+
+    .fashion-note-quote {
+        font-size: 1.2rem;
+    }
+
+    .contact-main h2 {
+        font-size: 2.5rem;
+    }
+
+    .quilt-year {
+        font-size: 2.4rem;
+    }
+
+    .experience-header h2,
+    .projects-header h2 {
+        font-size: 2.4rem;
+    }
+
+    .footer-logo {
+        font-size: 1.4rem;
+    }
+}
