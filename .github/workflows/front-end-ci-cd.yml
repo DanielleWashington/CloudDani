@@ -35,15 +35,35 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: 'us-east-1'
 
-    - name: Set short Cache-Control on HTML, sitemap, robots
+    - name: Set Cache-Control and Content-Type on HTML files
       run: |
-        for key in index.html blog.html cosmic-mockup.html sitemap.xml robots.txt; do
+        for key in index.html blog.html; do
           aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/$key \
                     s3://${{ secrets.AWS_S3_BUCKET }}/$key \
+                    --content-type "text/html; charset=utf-8" \
                     --cache-control "public, max-age=300, must-revalidate" \
                     --metadata-directive REPLACE \
                     --acl public-read
         done
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: 'us-east-1'
+
+    - name: Set Cache-Control and Content-Type on XML and text files
+      run: |
+        aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/sitemap.xml \
+                  s3://${{ secrets.AWS_S3_BUCKET }}/sitemap.xml \
+                  --content-type "application/xml" \
+                  --cache-control "public, max-age=300, must-revalidate" \
+                  --metadata-directive REPLACE \
+                  --acl public-read
+        aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/robots.txt \
+                  s3://${{ secrets.AWS_S3_BUCKET }}/robots.txt \
+                  --content-type "text/plain; charset=utf-8" \
+                  --cache-control "public, max-age=300, must-revalidate" \
+                  --metadata-directive REPLACE \
+                  --acl public-read
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -55,12 +75,14 @@ jobs:
                   s3://${{ secrets.AWS_S3_BUCKET }}/css/ \
                   --recursive \
                   --cache-control "public, max-age=86400" \
+                  --content-type "text/css; charset=utf-8" \
                   --metadata-directive REPLACE \
                   --acl public-read
         aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/js/ \
                   s3://${{ secrets.AWS_S3_BUCKET }}/js/ \
                   --recursive \
                   --cache-control "public, max-age=86400" \
+                  --content-type "application/javascript; charset=utf-8" \
                   --metadata-directive REPLACE \
                   --acl public-read
       env:
@@ -76,3 +98,33 @@ jobs:
         AWS_REGION: 'us-east-1'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Smoke test — verify site is reachable and renders as HTML
+      run: |
+        echo "Waiting 15s for CloudFront invalidation to propagate..."
+        sleep 15
+
+        STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://www.clouddani.com/index.html)
+        CONTENT_TYPE=$(curl -sI https://www.clouddani.com/index.html | grep -i "^content-type:" | tr -d '\r')
+
+        echo "HTTP status:  $STATUS"
+        echo "Content-Type: $CONTENT_TYPE"
+
+        if [ "$STATUS" != "200" ]; then
+          echo "FAIL: expected HTTP 200, got $STATUS"
+          exit 1
+        fi
+
+        if echo "$CONTENT_TYPE" | grep -qiv "text/html"; then
+          echo "FAIL: Content-Type is not text/html — got: $CONTENT_TYPE"
+          echo "Site will download instead of render. Check S3 metadata."
+          exit 1
+        fi
+
+        BODY=$(curl -s https://www.clouddani.com/index.html | head -5)
+        if ! echo "$BODY" | grep -qi "<!doctype html\|<html"; then
+          echo "FAIL: response body does not look like HTML"
+          exit 1
+        fi
+
+        echo "OK: site is live, Content-Type is correct, HTML is rendering."
