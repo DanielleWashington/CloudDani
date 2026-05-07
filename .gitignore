@@ -1,1 +1,24 @@
+# macOS
 .DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Lambda build artifacts
+concierge/package/
+concierge.zip
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Env
+.env
+.env.local
