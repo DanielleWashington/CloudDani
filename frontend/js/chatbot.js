@@ -7,7 +7,7 @@
 // Concierge API Configuration
 // Update CONCIERGE_API after creating the API Gateway endpoint
 // ============================================
-const CONCIERGE_API = 'https://REPLACE_WITH_API_GATEWAY_URL/chat';
+const CONCIERGE_API = 'https://q75k731zki.execute-api.us-east-1.amazonaws.com/chat';
 
 // ============================================
 // Conversation History (multi-turn context)
