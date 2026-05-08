@@ -182,10 +182,11 @@ async function sendMessage() {
         const reply = await fetchConciergeResponse(message);
         addMessage({ type: 'bot', content: reply, time: getCurrentTime() });
     } catch (err) {
-        console.error('Concierge error:', err);
+        console.error('Concierge error:', err.name, err.message, err);
+        const detail = `${err.name}: ${err.message}`;
         addMessage({
             type: 'bot',
-            content: `Sorry, I'm having trouble connecting right now. You can reach Danielle directly at <a href="mailto:shakara.washington02@gmail.com">shakara.washington02@gmail.com</a>.`,
+            content: `Sorry, I'm having trouble connecting right now. (${detail}) — You can reach Danielle directly at <a href="mailto:shakara.washington02@gmail.com">shakara.washington02@gmail.com</a>.`,
             time: getCurrentTime()
         });
     } finally {
