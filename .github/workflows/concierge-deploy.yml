@@ -64,19 +64,18 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
         run: |
-          # Preserve existing env vars (ANTHROPIC_API_KEY managed in console) and add KB_VERSION
-          CURRENT_VARS=$(aws lambda get-function-configuration \
+          # Read current env vars, merge in KB_VERSION, write to file to avoid quoting issues
+          aws lambda get-function-configuration \
             --function-name clouddani-concierge \
             --region us-east-1 \
             --query 'Environment.Variables' \
-            --output json)
-          MERGED=$(echo "$CURRENT_VARS" | python3 -c "
+            --output json | python3 -c "
           import json, sys
           v = json.load(sys.stdin) or {}
           v['KB_VERSION'] = '${{ github.sha }}'
-          print(json.dumps(v))
-          ")
+          print(json.dumps({'Variables': v}))
+          " > /tmp/env.json
           aws lambda update-function-configuration \
             --function-name clouddani-concierge \
-            --environment "Variables=$MERGED" \
+            --environment file:///tmp/env.json \
             --region us-east-1
