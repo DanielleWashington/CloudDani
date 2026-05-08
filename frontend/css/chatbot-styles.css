@@ -206,8 +206,8 @@
     border: 2px solid var(--ink);
 }
 
-.message.bot  .message-avatar { background: var(--pink);  color: var(--white); }
-.message.user .message-avatar { background: var(--yellow); color: var(--ink); }
+.message.bot  .message-avatar { background: var(--yellow); color: var(--ink); }
+.message.user .message-avatar { background: var(--pink);   color: var(--white); }
 
 .message-bubble {
     display: flex;
@@ -219,35 +219,47 @@
     line-height: 1.55;
     font-family: var(--font-body);
     font-size: 0.88rem;
+}
+
+/* Bot: cream on ink — high contrast, editorial */
+.message.bot  .message-content {
+    background: var(--cream-warm);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+}
+
+/* User: white on pink — punchy, distinct */
+.message.user .message-content {
+    background: var(--pink);
     color: var(--white);
 }
 
-.message.bot  .message-content { background: var(--ink-soft); border: 1px solid rgba(255,255,255,0.1); }
-.message.user .message-content { background: var(--pink); }
-
-.message-content a {
-    color: var(--yellow);
-    text-decoration: underline;
-}
-
-.message-content strong { color: var(--yellow); }
+/* Links & emphasis adapt per bubble */
+.message.bot  .message-content a      { color: var(--pink);     text-decoration: underline; }
+.message.user .message-content a      { color: var(--yellow);   text-decoration: underline; }
+.message.bot  .message-content strong { color: var(--ink);      font-weight: 700; }
+.message.user .message-content strong { color: var(--yellow);   font-weight: 700; }
 
 .message-content code {
-    background: rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.08);
     padding: 1px 5px;
     font-family: 'Courier New', monospace;
     font-size: 0.82rem;
 }
 
+.message.user .message-content code { background: rgba(255,255,255,0.2); }
+
 .message-time {
     font-family: var(--font-stamp);
     font-size: 0.65rem;
     letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.55);
     margin-top: 4px;
     display: block;
     padding: 0 2px;
 }
+
+.message.bot .message-time { color: rgba(26,18,8,0.45); }
 
 /* ── Typing indicator ── */
 .typing-indicator {
@@ -297,14 +309,14 @@
 
 .quick-reply-btn {
     background: transparent;
-    border: 1.5px solid rgba(255,255,255,0.25);
-    color: var(--cream);
+    border: 1.5px solid rgba(255,255,255,0.55);
+    color: var(--cream-warm);
     padding: 6px 12px;
     font-family: var(--font-stamp);
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     cursor: pointer;
-    transition: background 0.15s, border-color 0.15s;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
     white-space: nowrap;
 }
 
@@ -339,7 +351,7 @@
 
 .chat-input:focus { border-color: var(--yellow); }
 
-.chat-input::placeholder { color: rgba(255,255,255,0.35); }
+.chat-input::placeholder { color: rgba(255,255,255,0.55); }
 
 .chat-send-btn {
     width: 38px;

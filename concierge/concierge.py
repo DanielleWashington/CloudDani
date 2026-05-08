@@ -38,22 +38,29 @@ _client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 MAX_HISTORY_TURNS = 6  # keep last 6 messages (3 exchanges) to bound context cost
 
 # ──────────────────────────────────────────────────────────────────────────────
-# CORS headers — restrict to clouddani.com in production
+# CORS — clouddani.com redirects to www.clouddani.com so both must be allowed
 # ──────────────────────────────────────────────────────────────────────────────
-CORS_HEADERS = {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "https://clouddani.com",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-}
+_ALLOWED_ORIGINS = {"https://clouddani.com", "https://www.clouddani.com"}
+
+def _cors_headers(event: dict) -> dict:
+    """Return CORS headers, echoing the request origin if it's in the allowlist."""
+    origin = (event.get("headers") or {}).get("origin") or \
+             (event.get("headers") or {}).get("Origin") or ""
+    allowed = origin if origin in _ALLOWED_ORIGINS else "https://www.clouddani.com"
+    return {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": allowed,
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+    }
 
 
-def _ok(body: dict) -> dict:
-    return {"statusCode": 200, "headers": CORS_HEADERS, "body": json.dumps(body)}
+def _ok(body: dict, event: dict) -> dict:
+    return {"statusCode": 200, "headers": _cors_headers(event), "body": json.dumps(body)}
 
 
-def _err(status: int, message: str) -> dict:
-    return {"statusCode": status, "headers": CORS_HEADERS, "body": json.dumps({"error": message})}
+def _err(status: int, message: str, event: dict) -> dict:
+    return {"statusCode": status, "headers": _cors_headers(event), "body": json.dumps({"error": message})}
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -63,7 +70,7 @@ def lambda_handler(event, context):  # noqa: ARG001
     # Handle CORS preflight
     method = event.get("requestContext", {}).get("http", {}).get("method", "")
     if method == "OPTIONS":
-        return {"statusCode": 200, "headers": CORS_HEADERS, "body": ""}
+        return {"statusCode": 200, "headers": _cors_headers(event), "body": ""}
 
     try:
         body = json.loads(event.get("body") or "{}")
@@ -71,7 +78,7 @@ def lambda_handler(event, context):  # noqa: ARG001
         history = body.get("history", [])
 
         if not user_msg:
-            return _err(400, "message is required")
+            return _err(400, "message is required", event)
 
         # Trim history to last MAX_HISTORY_TURNS messages, then append current user message
         messages = history[-(MAX_HISTORY_TURNS):] + [{"role": "user", "content": user_msg}]
@@ -104,16 +111,16 @@ def lambda_handler(event, context):  # noqa: ARG001
         )
 
         reply = resp.content[0].text
-        return _ok({"reply": reply})
+        return _ok({"reply": reply}, event)
 
     except anthropic.APIStatusError as exc:
         print(f"Anthropic API error: {exc.status_code} — {exc.message}")
-        return _err(502, "AI service temporarily unavailable. Please try again in a moment.")
+        return _err(502, "AI service temporarily unavailable. Please try again in a moment.", event)
 
     except anthropic.APIConnectionError as exc:
         print(f"Anthropic connection error: {exc}")
-        return _err(503, "Could not reach AI service. Please try again.")
+        return _err(503, "Could not reach AI service. Please try again.", event)
 
     except Exception as exc:  # noqa: BLE001
         print(f"Unexpected error: {exc}")
-        return _err(500, "Internal server error")
+        return _err(500, "Internal server error", event)
