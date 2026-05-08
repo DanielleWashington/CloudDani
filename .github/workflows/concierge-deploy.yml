@@ -22,7 +22,13 @@ jobs:
 
       - name: Install dependencies into package directory
         run: |
-          pip install -r concierge/requirements.txt -t concierge/package/
+          pip install \
+            --platform manylinux2014_x86_64 \
+            --target concierge/package/ \
+            --implementation cp \
+            --python-version 3.12 \
+            --only-binary :all: \
+            -r concierge/requirements.txt
 
       - name: Bundle Lambda package
         run: |
@@ -58,7 +64,19 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
         run: |
+          # Preserve existing env vars (ANTHROPIC_API_KEY managed in console) and add KB_VERSION
+          CURRENT_VARS=$(aws lambda get-function-configuration \
+            --function-name clouddani-concierge \
+            --region us-east-1 \
+            --query 'Environment.Variables' \
+            --output json)
+          MERGED=$(echo "$CURRENT_VARS" | python3 -c "
+          import json, sys
+          v = json.load(sys.stdin) or {}
+          v['KB_VERSION'] = '${{ github.sha }}'
+          print(json.dumps(v))
+          ")
           aws lambda update-function-configuration \
             --function-name clouddani-concierge \
-            --environment "Variables={ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }},KB_VERSION=${{ github.sha }}}" \
+            --environment "Variables=$MERGED" \
             --region us-east-1
