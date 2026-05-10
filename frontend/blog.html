@@ -121,10 +121,48 @@
     <!-- RECENT ARTICLES GRID -->
     <section class="posts-section">
         <div class="blog-section-header">
-            <h2>RECENT ARTICLES</h2>
-            <span class="section-count">6 DISPATCHES</span>
+            <h2>ALL DISPATCHES</h2>
+            <span class="section-count">LOADING…</span>
         </div>
-        <div class="posts-grid">
+
+        <!-- Source legend -->
+        <div class="feed-legend">
+            <span class="legend-label">SOURCE —</span>
+            <div class="legend-item">
+                <div class="legend-swatch legend-swatch--devto"></div>
+                DEV.TO
+            </div>
+            <div class="legend-item">
+                <div class="legend-swatch legend-swatch--substack"></div>
+                SUBSTACK
+            </div>
+            <div class="legend-item">
+                <div class="legend-swatch legend-swatch--weaviate"></div>
+                WEAVIATE
+            </div>
+        </div>
+
+        <!-- Source filter bar -->
+        <div class="source-filter">
+            <button class="filter-btn active" data-source="all">
+                <span class="filter-dot filter-dot--all"></span>
+                ALL
+            </button>
+            <button class="filter-btn" data-source="devto">
+                <span class="filter-dot filter-dot--devto"></span>
+                DEV.TO
+            </button>
+            <button class="filter-btn" data-source="substack">
+                <span class="filter-dot filter-dot--substack"></span>
+                SUBSTACK
+            </button>
+            <button class="filter-btn" data-source="weaviate">
+                <span class="filter-dot filter-dot--weaviate"></span>
+                WEAVIATE
+            </button>
+        </div>
+
+        <div id="postsGrid" class="posts-grid">
 
             <article class="blog-card">
                 <div class="blog-card-header blog-card-header--blue">
@@ -304,7 +342,7 @@
     <!-- JavaScript -->
     <script src="js/netflix-scripts.js" defer></script>
     <script src="js/chatbot.js" defer></script>
-    <script src="js/devto-feed.js" defer></script>
+    <script src="js/unified-feed.js" defer></script>
 
     <!-- Mobile nav hamburger -->
     <script>
