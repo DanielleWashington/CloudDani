@@ -561,3 +561,14 @@
     .blog-hero-title { font-size: clamp(2.5rem, 14vw, 4rem); }
     .blog-card-content { padding: 20px; }
 }
+
+.feed-loading,
+.feed-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: var(--font-sans);
+    color: var(--ink);
+    opacity: 0.45;
+    padding: 3rem 1rem;
+    letter-spacing: 0.05em;
+}

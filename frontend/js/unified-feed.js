@@ -192,7 +192,13 @@ async function loadUnifiedFeed() {
         ...WEAVIATE_POSTS,
     ].sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
 
-    if (all.length === 0) return;
+    if (all.length === 0) {
+        const postsGrid = document.getElementById('postsGrid');
+        if (postsGrid) postsGrid.innerHTML = '<p class="feed-empty">No posts available right now — check back soon.</p>';
+        const featuredEl = document.querySelector('.featured-post');
+        if (featuredEl) featuredEl.innerHTML = '<p class="feed-empty">No featured post available.</p>';
+        return;
+    }
 
     // Featured post — most recent article
     const featuredEl = document.querySelector('.featured-post');
