@@ -39,14 +39,14 @@
     top: 0;
     transform: scaleX(0);
     transform-origin: left;
-    animation: borderSlide 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+    animation: borderSlide 0.79s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
 }
 
 .intro-border-bottom {
     bottom: 0;
     transform: scaleX(0);
     transform-origin: right;
-    animation: borderSlide 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+    animation: borderSlide 0.79s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
 }
 
 @keyframes borderSlide {
@@ -64,7 +64,7 @@
     border-right: 6px solid #1A1208;
     transform: scaleY(0);
     transform-origin: top;
-    animation: blockReveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+    animation: blockReveal 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.53s both;
     z-index: 1;
 }
 
@@ -78,7 +78,7 @@
     border-left: 6px solid #1A1208;
     transform: scaleY(0);
     transform-origin: bottom;
-    animation: blockReveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+    animation: blockReveal 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
     z-index: 1;
 }
 
@@ -106,7 +106,7 @@
     color: #D42020;
     opacity: 0;
     transform: translateY(6px);
-    animation: fadeUp 0.4s ease-out 0.55s both;
+    animation: fadeUp 1.05s ease-out 1.44s both;
     margin-bottom: 12px;
 }
 
@@ -119,7 +119,7 @@
     color: #1A1208;
     opacity: 0;
     transform: translateY(18px);
-    animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+    animation: fadeUp 1.31s cubic-bezier(0.22, 1, 0.36, 1) 1.58s both;
     position: relative;
     display: inline-block;
 }
@@ -132,7 +132,7 @@
     background: #F5C000;
     width: 0;
     margin-top: 10px;
-    animation: lineGrow 0.4s ease-out 1.05s both;
+    animation: lineGrow 1.05s ease-out 2.76s both;
 }
 
 @keyframes lineGrow {
@@ -147,7 +147,7 @@
     color: #3D3220;
     opacity: 0;
     transform: translateY(6px);
-    animation: fadeUp 0.4s ease-out 1.0s both;
+    animation: fadeUp 1.05s ease-out 2.63s both;
     margin-top: 20px;
 }
 
@@ -157,7 +157,7 @@
     letter-spacing: 0.3em;
     color: #D42020;
     opacity: 0;
-    animation: fadeUp 0.3s ease-out 0.85s both;
+    animation: fadeUp 0.79s ease-out 2.23s both;
     margin-bottom: 4px;
 }
 
@@ -186,7 +186,7 @@
     letter-spacing: 0.12em;
     cursor: pointer;
     opacity: 0;
-    animation: fadeUp 0.3s ease-out 1.4s both;
+    animation: fadeUp 0.79s ease-out 3.68s both;
     transition: background 0.15s, color 0.15s;
     z-index: 3;
 }

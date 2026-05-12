@@ -361,7 +361,7 @@ body {
 
 .marquee-inner {
     display: inline-block;
-    animation: marquee 22s linear infinite;
+    animation: marquee 57.75s linear infinite;
 }
 
 .marquee-inner span {

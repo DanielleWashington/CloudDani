@@ -5,8 +5,8 @@
  */
 
 const INTRO_CONFIG = {
-    duration: 2400,          // ms before auto-dismiss
-    skipDelay: 1400,         // ms before skip button appears
+    duration: 6300,          // ms before auto-dismiss
+    skipDelay: 3675,         // ms before skip button appears
     storageKey: 'clouddani_intro_shown',
     playOnEveryVisit: false
 };
