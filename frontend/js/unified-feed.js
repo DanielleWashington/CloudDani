@@ -14,17 +14,17 @@ const RSS2JSON_API  = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIC
 
 const WEAVIATE_POSTS = [
     {
-        title:        'Day 0, Day 1, Day 2: Operating Weaviate in Production',
+        title:        'From Kitchen Experiments to Five Star Service: The Weaviate Development Journey',
         url:          'https://weaviate.io/blog/day0-day1-day2-operations',
-        published_at: '2025-07-01',
+        published_at: '2025-11-06',
         description:  'A comprehensive guide to the full lifecycle of running Weaviate in production — from initial cluster setup and configuration through steady-state management and incident response.',
         tag_list:     ['Operations', 'Kubernetes', 'Production'],
         source:       'weaviate',
     },
     {
-        title:        'Scaling and Weaviate: A Practical Guide',
+        title:        'The Art of Scaling a Vector Database like Weaviate',
         url:          'https://weaviate.io/blog/scaling-and-weaviate',
-        published_at: '2025-05-01',
+        published_at: '2025-06-18',
         description:  'How to scale a Weaviate cluster horizontally under load — covering sharding strategies, node configuration, and the operational patterns that keep latency predictable.',
         tag_list:     ['Scaling', 'Kubernetes', 'Vector DB'],
         source:       'weaviate',
@@ -32,7 +32,7 @@ const WEAVIATE_POSTS = [
     {
         title:        'Latency and Weaviate: How to Diagnose and Reduce It',
         url:          'https://weaviate.io/blog/latency-and-weaviate',
-        published_at: '2025-03-01',
+        published_at: '2025-07-10',
         description:  'Latency in vector search isn\'t just a hardware problem. Your index configuration, query patterns, and data shape all play a role — here\'s how to think through each layer.',
         tag_list:     ['Performance', 'Vector DB', 'AI'],
         source:       'weaviate',
